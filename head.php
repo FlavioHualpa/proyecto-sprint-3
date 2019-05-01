@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,28 +7,3 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header id="encabezado">
-    <h1>Librería DH</h1>
-    <nav>
-      <ul>
-        <li>
-          <div>
-            <i class="fas fa-home"></i>Inicio
-          </div>
-        </li>
-        <li>
-          <div>
-            <i class="fas fa-sign-in-alt"></i>Ingresar
-          </div>
-        </li>
-        <li>
-          <div>
-            <i class="fas fa-user-plus"></i>Registrate
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </header>
-</body>
-</html>
