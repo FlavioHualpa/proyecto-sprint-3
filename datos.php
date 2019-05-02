@@ -73,6 +73,25 @@
     ],
   ];
 
-  $mas_vendidos_por_ranking = ordernar_por_ranking($mas_vendidos);
+  $usuarios_registrados = [
+    [
+      "usuario" => "LorenaC",
+      "nombre" => "Lorena Citcioglu",
+      "contraseña" => "1234",
+      "genero" => "f",
+    ],
+    [
+      "usuario" => "PedroM",
+      "nombre" => "Pedro Martellotta",
+      "contraseña" => "6789",
+      "genero" => "m",
+    ],
+    [
+      "usuario" => "FlavioH",
+      "nombre" => "Flavio Hualpa",
+      "contraseña" => "abcd",
+      "genero" => "m",
+    ],
+  ];
 
 ?>

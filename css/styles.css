@@ -55,3 +55,17 @@ body {
 #encabezado nav ul li div i {
   margin-right: 5px;
 }
+
+#encabezado nav ul li div a {
+  color: #c0c080;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 600px)
+{
+  #contenedor {
+    max-width: 960px;
+    width: 95%;
+    margin: 0 auto;
+  }
+}

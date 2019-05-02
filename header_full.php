@@ -4,17 +4,37 @@
     <ul>
       <li>
         <div>
-          <i class="fas fa-home"></i>Inicio
+          <i class="fas fa-home"></i>
+          <a href="index.php">Inicio</a>
         </div>
       </li>
       <li>
         <div>
-          <i class="fas fa-sign-in-alt"></i>Ingresar
+          <?php if ($sesion_iniciada) : ?>
+            <?php if ($genero_usuario == "f") : ?>
+              <span>Bienvenida,</span>
+              <br>
+              <span><?= $nombre_usuario ?></span>
+            <?php else : ?>
+              <span>Bienvenido,</span>
+              <br>
+              <span><?= $nombre_usuario ?></span>
+            <?php endif; ?>
+          <?php else : ?>
+            <i class="fas fa-sign-in-alt"></i>
+            <a href="login.php#ingresar">Ingresar</a>
+          <?php endif; ?>
         </div>
       </li>
       <li>
         <div>
-          <i class="fas fa-user-plus"></i>Registrate
+          <?php if ($sesion_iniciada) : ?>
+            <i class="fas fa-sign-out-alt"></i>
+            <a href="#">Cerrar Sesión</a>
+          <?php else : ?>
+            <i class="fas fa-user-plus"></i>
+            <a href="login.php#registrar">Registrate</a>
+          <?php endif; ?>
         </div>
       </li>
     </ul>
