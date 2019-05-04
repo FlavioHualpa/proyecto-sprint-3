@@ -4,7 +4,8 @@
     <ul>
       <li>
         <div>
-          <i class="fas fa-chevron-circle-left"></i>Volver
+          <i class="fas fa-chevron-circle-left"></i>
+          <a href="index.php">Volver</a>
         </div>
       </li>
     </ul>

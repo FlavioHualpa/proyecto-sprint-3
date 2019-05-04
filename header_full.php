@@ -1,5 +1,5 @@
 <header id="encabezado">
-  <h1>Librería DH</h1>
+  <h1>Chuzabook</h1>
   <nav>
     <ul>
       <li>
@@ -22,7 +22,7 @@
             <?php endif; ?>
           <?php else : ?>
             <i class="fas fa-sign-in-alt"></i>
-            <a href="login.php#ingresar">Ingresar</a>
+            <a href="login.php">Ingresar</a>
           <?php endif; ?>
         </div>
       </li>
@@ -33,7 +33,7 @@
             <a href="#">Cerrar Sesión</a>
           <?php else : ?>
             <i class="fas fa-user-plus"></i>
-            <a href="login.php#registrar">Registrate</a>
+            <a href="registration.php">Crear una cuenta</a>
           <?php endif; ?>
         </div>
       </li>
