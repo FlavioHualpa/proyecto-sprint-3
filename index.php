@@ -1,13 +1,13 @@
-<?php include('datos.php'); ?>
-<?php include('funciones.php'); ?>
+<?= include('datos.php'); ?>
+<?= include('funciones.php'); ?>
 
 <!DOCTYPE html>
 <html lang="es">
-<?php include('head.php'); ?>
+<?= include('head.php'); ?>
 
 <body>
   <div id="contenedor">
-    <?php include('header_full.php'); ?>
+    <?= include('header_full.php'); ?>
     <div class="banner">
     </div>
     <section class="tituloSection">
@@ -20,14 +20,16 @@
       </h3>
       <div class="viñeta">
       </div>
-
       <div class="prodsSection">
-
-        <?php foreach($novedades as $libro) : ?>
+        <?= foreach($novedades as $libro) : ?>
         <article>
           <div class="fondo-con-sombra">
-            <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
-            <h4><?= $libro['titulo'] ?></h4>
+            <div class="tapaYTitulo">
+              <div class="tapa">
+                <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
+              </div>
+              <h4><?= $libro['titulo'] ?></h4>
+            </div>
             <div class="ver-mas">
               <i class="fas fa-eye"></i>
               <span>VER DETALLES</span>
@@ -38,7 +40,7 @@
             <a href="#">comprar</a>
           </div>
         </article>
-        <?php endforeach ?>
+        <?= endforeach ?>
 
       </div>
     </section>
@@ -67,7 +69,7 @@
 
       <div class="prodsSection">
 
-        <?php foreach($mas_vendidos_por_ranking as $libro) : ?>
+        <?= foreach($mas_vendidos_por_ranking as $libro) : ?>
         <article>
           <div class="fondo-con-sombra">
             <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
@@ -82,7 +84,7 @@
             <a href="#">comprar</a>
           </div>
         </article>
-        <?php endforeach ?>
+        <?= endforeach ?>
 
       </div>
     </section>
@@ -101,7 +103,7 @@
     </section>
     -->
 
-    <?php include('footer.php'); ?>
+    <?= include('footer.php'); ?>
   </div>
 </body>
 </html>

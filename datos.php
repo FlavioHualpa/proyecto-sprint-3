@@ -91,7 +91,7 @@
       "paginas" => 112,
       "precio" => 450.0,
       "ranking" => 1,
-    ],
+    ], 
     [
       "titulo" => "Templanza (Irma)",
       "autor" => "Julieta Santos",

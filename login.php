@@ -21,9 +21,11 @@
               <label for="pass">Contraseña</label>
               <input id="pass" type="password" name="pass" value="" placeholder="Ingresar Contraseña">
             </p>
-            <p>
-              <input id="boton" type="submit" value="INGRESAR">
-            </p>
+            <div class="botones">
+              <p>
+                <input id="boton" type="submit" value="INGRESAR">
+              </p>
+            </div>
           </fieldset>
         </form>
       </div>
