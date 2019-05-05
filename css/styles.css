@@ -8,14 +8,24 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-image: url(../img/fondo6.jpg);
+}
+
+#contenedor {
+  min-width: 360px;
+  max-width: 960px;
+}
+
 .banner {
- background-image:url(../img/banner3.jpg);
- background-repeat: no repeat;
- background-size: cover;
- background-position: center center;
- margin: 10px auto;
- width: 100%;
- height:300px;
+  background-image: url(../img/banner3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin: 20px auto 50px auto;
+  width: 100%;
+  height: 300px;
+  display: none;
 }
 
 .tituloSection {
@@ -24,24 +34,90 @@ html {
   text-align: center;
   align-items: center;
 }
+
 .tituloSection h3 {
   width: 100%;
   height: 60px;
-  border-top: 1px solid #676745;
-  border-bottom: 1px solid #676745;
-  margin-top: 20px;
+  border-top: 1px solid #0066d2;
+  border-bottom: 1px solid #0066d2;
+  /* margin-top: 20px; */
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  background-color: rgba(0, 0, 0, 0.15);
   font-family: 'Lora', serif;
   font-size: 30px;
-  color: #676745;
+  color: #0066d2;
+}
+
+.viñeta {
+  width: 40%;
+  margin: 0 auto;
+  border-top: 2px solid #0066d2;
+}
+
+.separador {
+  height: 50px;
 }
 
 .prodsSection {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.fondo-con-sombra {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 6px;
+  margin-bottom: 15px;
+}
+
+.prodsSection article {
+  width: 90%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.prodsSection article img {
+  width: 100%;
+}
+
+.prodsSection article h4 {
+  font-size: 22px;
+  margin: 4px 0 8px 0;
+  width: 100%;
+}
+
+.prodsSection article div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.prodsSection article div span {
+  font-family: Merriweather;
+  font-size: 20px;
+}
+
+.prodsSection article div a {
+  text-decoration: none;
+  padding: 6px 15px;
+  background-color: #0060ff;
+  color: white;
+  border-radius: 6px;
+  font-family: Merriweather;
+  text-transform: uppercase;
+}
+
+.prodsSection article div a:hover {
+  background-color: #0090ff;
 }
 
 .libro1 {
@@ -58,12 +134,13 @@ html {
   width: 90%;
   margin: 5%;
 }
+
 #encabezado h1 {
-  background-color: white;
+  /* background-color: white; */
   font-family: 'Lobster', cursive;
-  font-size: 60px;
+  font-size: 72px;
   text-align: center;
-  color: #63dddd;
+  color: #0066d2;
   margin-top: 20px;
 }
 
@@ -73,25 +150,25 @@ html {
   align-items: center;
   width: 100%;
   height: 60px;
-  border-top: 1px solid #676745;
-  border-bottom: 1px solid #676745;
+  border-top: 1px solid #0066d2;
+  border-bottom: 1px solid #0066d2;
   margin-top: 40px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 #encabezado nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  /* width: 30%; */
   height: 60px;
   cursor: pointer;
 }
 
 #encabezado nav ul li div {
   font-family: 'Lora', serif;
-  font-size: 14px;
-  color: #676745;
+  font-size: 16px;
+  color: #0066d2;
   transition: 0.4s;
 }
 
@@ -104,7 +181,8 @@ html {
 }
 
 #encabezado nav ul li div a {
-  color: #676745;
+  color: #0066d2;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -116,33 +194,41 @@ html {
   text-decoration: none;
   border-top: 1px solid #676745;
   width: 100%;
-  color: #676745;
+  color: #0066d2;
   padding-top: 10px;
 }
 
 #footer nav ul li {
   text-decoration: none;
   font-family: 'Lora', serif;
-  font-size: 14px;
-  color: #676745;
+  font-size: 18px;
+  color: #0066d2;
 }
 
-#footer nav ul li.links {
+#footer nav ul li a {
+  text-decoration: none;
+  color: #0066d2;
+}
+
+#footer nav ul li .links {
   font-size: 30px;
-  color: #676745;
+  color: #0066d2;
 }
 
 #footer nav p {
   font-family: 'Lora', serif;
   font-size: 14px;
   color: #676745;
+  color: #606060;
   padding-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .login {
   width: 100%;
 }
+
 .login fieldset {
   text-decoration: none;
   font-family: 'Lora', serif;
@@ -188,20 +274,42 @@ html {
 }
 
 
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 480px) /* and (max-width: 768px) */ {
+  .prodsSection article {
+    width: 45%;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) {
 
+  #contenedor {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .separador {
+    display: none;
+  }
+
+  .banner {
+    display: block;
+  }
+
+  /*
   .prodsSection {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
     height: 525px;
+  }
+  */
+
+  .prodsSection article {
+    width: 30%;
   }
 
   .libro1 {
@@ -216,7 +324,7 @@ html {
 
   .libro3 {
     width: 30%;
-    margin: auto 1  %;
+    margin: auto 1%;
 
   }
 

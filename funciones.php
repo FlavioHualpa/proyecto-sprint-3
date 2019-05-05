@@ -5,15 +5,26 @@
   $genero_usuario = null;
   $mas_vendidos_por_ranking = ordernar_por_ranking($mas_vendidos);
 
+  /* esta función es para ordenar el array
+  /* de libros por su ranking de ventas */
   function ordernar_por_ranking($array) {
     usort($array, 'comp_rank');
     return $array;
   }
 
+  /* función de ayuda para que usort sepa
+  /* cómo debe comparar los elementos del
+  /* array para ordenarlos */
   function comp_rank($a, $b) {
     return $a["ranking"] - $b["ranking"];
   }
 
+  /* iniciar_sesion recibe 3 parámetros:
+  /* $usuarios: el array de usuarios registrados
+  /* $usuario_ingresado: el usuario que intenta iniciar sesión
+  /* $clave_ingresada: la clave del usuario
+  /* Si la combinación de usuario y clave existe dentro de $usuarios
+  /* se establece la variable $sesion_iniciada a true */
   function iniciar_sesion($usuarios, $usuario_ingresado, $clave_ingresada) {
 
     global $sesion_iniciada;
@@ -31,6 +42,8 @@
     return $sesion_iniciada;
   }
 
+  /* se indica el cierre de una sesión estableciendo la variable
+  /* $sesion_iniciada a false y $nombre_usuario a null */
   function cerrar_sesion() {
 
     global $sesion_iniciada;
