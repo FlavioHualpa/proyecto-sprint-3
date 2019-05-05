@@ -23,14 +23,18 @@
 
       <div class="prodsSection">
 
-        <?php foreach($novedades as $novedad) : ?>
+        <?php foreach($novedades as $libro) : ?>
         <article>
           <div class="fondo-con-sombra">
-            <img src="<?= 'img/' . $novedad['imagenTapa'] ?>" alt="<?= $novedad['titulo'] ?>">
-            <h4><?= $novedad['titulo'] ?></h4>
+            <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
+            <h4><?= $libro['titulo'] ?></h4>
+            <div class="ver-mas">
+              <i class="fas fa-eye"></i>
+              <span>VER DETALLES</span>
+            </div>
           </div>
-          <div>
-            <span><?= '$ ' . $novedad['precio'] ?></span>
+          <div class="pie-de-articulo">
+            <span><?= '$ ' . $libro['precio'] ?></span>
             <a href="#">comprar</a>
           </div>
         </article>
@@ -68,8 +72,12 @@
           <div class="fondo-con-sombra">
             <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
             <h4><?= $libro['titulo'] ?></h4>
+            <div class="ver-mas">
+              <i class="fas fa-eye"></i>
+              <span>VER DETALLES</span>
+            </div>
           </div>
-          <div>
+          <div class="pie-de-articulo">
             <span><?= '$ ' . $libro['precio'] ?></span>
             <a href="#">comprar</a>
           </div>

@@ -148,7 +148,7 @@
       "genero" => "m",
     ],
     [
-      "usuario" => "FlavioH",
+      "usuario" => "flavio@mail.com",
       "nombre" => "Flavio Hualpa",
       "contraseña" => "abcd",
       "genero" => "m",

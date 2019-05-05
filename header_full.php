@@ -30,7 +30,7 @@
         <div>
           <?php if ($sesion_iniciada) : ?>
             <i class="fas fa-sign-out-alt"></i>
-            <a href="#">Cerrar Sesión</a>
+            <a href="index.php">Cerrar Sesión</a>
           <?php else : ?>
             <i class="fas fa-user-plus"></i>
             <a href="registration.php">Crear una cuenta</a>

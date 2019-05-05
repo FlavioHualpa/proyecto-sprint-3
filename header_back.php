@@ -1,5 +1,5 @@
 <header id="encabezado">
-  <h1>Librería DH</h1>
+  <h1>Chuzabook</h1>
   <nav>
     <ul>
       <li>

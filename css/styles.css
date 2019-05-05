@@ -69,12 +69,6 @@ body {
   justify-content: space-around;
 }
 
-.fondo-con-sombra {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 6px;
-  margin-bottom: 15px;
-}
-
 .prodsSection article {
   width: 90%;
   margin-bottom: 30px;
@@ -94,19 +88,19 @@ body {
   width: 100%;
 }
 
-.prodsSection article div {
+.prodsSection article .pie-de-articulo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.prodsSection article div span {
+.prodsSection article .pie-de-articulo span {
   font-family: Merriweather;
   font-size: 20px;
 }
 
-.prodsSection article div a {
+.prodsSection article .pie-de-articulo a {
   text-decoration: none;
   padding: 6px 15px;
   background-color: #0060ff;
@@ -116,8 +110,40 @@ body {
   text-transform: uppercase;
 }
 
-.prodsSection article div a:hover {
+.prodsSection article .pie-de-articulo a:hover {
   background-color: #0090ff;
+}
+
+.fondo-con-sombra {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 6px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.ver-mas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  display: none;
+  cursor: pointer;
+  font-family: Merriweather;
+  font-size: 20px;
+}
+
+.ver-mas i {
+  margin-right: 10px;
+}
+
+.fondo-con-sombra:hover .ver-mas {
+  display: flex;
 }
 
 .libro1 {
@@ -205,6 +231,10 @@ body {
   color: #0066d2;
 }
 
+#footer nav ul li:nth-child(2) {
+  display: none;
+}
+
 #footer nav ul li a {
   text-decoration: none;
   color: #0066d2;
@@ -225,6 +255,14 @@ body {
   text-align: center;
 }
 
+#panel-form {
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  background-color: rgba(0, 24, 48, 0.2);
+  border-radius: 6px;
+}
+
 .login {
   width: 100%;
 }
@@ -232,7 +270,7 @@ body {
 .login fieldset {
   text-decoration: none;
   font-family: 'Lora', serif;
-  font-size: 30px;
+  font-size: 24px;
   width: 100%;
   color: #676745;
   margin: 20px auto;
@@ -240,13 +278,32 @@ body {
   border-right: none;
 }
 
+.login fieldset p label {
+  font-size: 18px;
+  color: #202020;
+}
+
 .login fieldset p input {
-  margin: 20px auto;
+  margin: 0 auto 10px auto;
   width: 100%;
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 30px;
   color: #676745;
+}
+
+.login fieldset p input[type="submit"] {
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0060ff;
+  color: white;
+  width: auto;
+  font-size: 26px;
+}
+
+.login fieldset p input[type="submit"]:hover {
+  background-color: #0090ff;
 }
 
 .registration fieldset {
@@ -326,6 +383,10 @@ body {
     width: 30%;
     margin: auto 1%;
 
+  }
+
+  #footer nav ul li:nth-child(2) {
+    display: block;
   }
 
 }

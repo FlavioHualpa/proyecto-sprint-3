@@ -55,5 +55,9 @@
     $genero_usuario = null;
   }
 
-  /* iniciar_sesion($usuarios_registrados, "FlavioH", "abcd"); */
+  if ($_POST) {
+    iniciar_sesion($usuarios_registrados, $_POST['email'], $_POST['pass']);
+  } else {
+    cerrar_sesion();
+  }
 ?>
