@@ -3,11 +3,11 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<?= include('head.php'); ?>
+<?php include('head.php'); ?>
 
 <body>
   <div id="contenedor">
-    <?= include('header_full.php'); ?>
+    <?php include('header_full.php'); ?>
     <div class="banner">
     </div>
     <section class="tituloSection">
@@ -21,7 +21,7 @@
       <div class="viñeta">
       </div>
       <div class="prodsSection">
-        <?= foreach($novedades as $libro) : ?>
+        <?php foreach($novedades as $libro) : ?>
         <article>
           <div class="fondo-con-sombra">
             <div class="tapaYTitulo">
@@ -40,7 +40,7 @@
             <a href="#">comprar</a>
           </div>
         </article>
-        <?= endforeach ?>
+        <?php endforeach ?>
 
       </div>
     </section>
@@ -69,7 +69,7 @@
 
       <div class="prodsSection">
 
-        <?= foreach($mas_vendidos_por_ranking as $libro) : ?>
+        <?php foreach($mas_vendidos_por_ranking as $libro) : ?>
         <article>
           <div class="fondo-con-sombra">
             <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
@@ -84,7 +84,7 @@
             <a href="#">comprar</a>
           </div>
         </article>
-        <?= endforeach ?>
+        <?php endforeach ?>
 
       </div>
     </section>
@@ -103,7 +103,7 @@
     </section>
     -->
 
-    <?= include('footer.php'); ?>
+    <?php include('footer.php'); ?>
   </div>
 </body>
 </html>
