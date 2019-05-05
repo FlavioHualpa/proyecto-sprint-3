@@ -3,7 +3,7 @@
     <ul>
       <li>
         <div>
-          <a href="#">Acerca de Chuzabook</a>
+          <a href="#">Acerca de ¿Qué Leo?</a>
         </div>
       </li>
       <li>
@@ -21,7 +21,7 @@
       </li>
     </ul>
     <p>
-      Copyright <i class="fas fa-copyright"></i> Chuzabook S.A. Todos los derechos reservados.
+      Copyright <i class="fas fa-copyright"></i> ¿Qué Leo? S.A. Todos los derechos reservados.
     </p>
   </nav>
 </header>
