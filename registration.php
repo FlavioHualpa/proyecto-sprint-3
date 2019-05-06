@@ -40,7 +40,7 @@
               <input id="boton" type="submit" value="CREAR CUENTA">
             </p>
             <p>
-              <input id="boton" type="submit" value="REINICIAR FORMULARIO">
+              <input id="boton" type="reset" value="REINICIAR FORMULARIO">
             </p>
           </div>
         </fieldset>

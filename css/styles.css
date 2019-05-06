@@ -318,7 +318,13 @@ body {
   width: auto;
   font-size: 26px;
 }
-
+.login fieldset p input[type="reset"] {
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  width: auto;
+  font-size: 26px;
+}
 .login fieldset p input[type="submit"]:hover {
   background-color: #0090ff;
 }
@@ -375,6 +381,7 @@ body {
 #boton {
   padding: 10px;
   border-radius: 5%;
+  border: none;
 }
 
 @media (min-width: 480px) /* and (max-width: 768px) */ {
