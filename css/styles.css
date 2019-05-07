@@ -311,12 +311,16 @@ body {
 
 .login fieldset p input[type="submit"] {
   margin-top: 20px;
+  padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  background-color: #0060ff;
-  color: white;
   width: auto;
   font-size: 26px;
+}
+
+.login fieldset p input[type="submit"] {
+  background-color: #0060ff;
+  color: white;
 }
 
 .login fieldset p input[type="submit"]:hover {
@@ -352,18 +356,27 @@ body {
   color: #676745;
 }
 
-.registration fieldset p input[type="submit"] {
+.registration fieldset p input[type="submit"],
+.registracion fieldset p input[type="reset"] {
   margin-top: 20px;
+  padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  background-color: #0060ff;
-  color: white;
   width: auto;
   font-size: 26px;
 }
 
+.registration fieldset p input[type="submit"] {
+  background-color: #0060ff;
+  color: white;
+}
+
 .registration fieldset p input[type="submit"]:hover {
   background-color: #0090ff;
+}
+
+.registracion fieldset p input[type="reset"]:hover {
+  background-color: #c0c0c0;
 }
 
 .botones {
@@ -372,10 +385,12 @@ body {
   justify-content: space-around;
 }
 
+/*
 #boton {
   padding: 10px;
   border-radius: 5%;
 }
+*/
 
 @media (min-width: 480px) /* and (max-width: 768px) */ {
   .prodsSection article {
