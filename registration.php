@@ -33,20 +33,21 @@
                 <input id="pass" type="password" name="pass" value="">
               </p>
               <p>
-                <label for="pass">Reingresar Contraseña:</label>
-                <input id="pass" type="password" name="pass" value="">
+                <label for="pass2">Reingresar Contraseña:</label>
+                <input id="pass2" type="password" name="pass" value="">
               </p>
               <div class="botones">
-                <p>
-                  <input id="boton" type="submit" value="CREAR CUENTA">
-                </p>
-                <p>
-                  <input id="boton" type="reset" value="REINICIAR FORMULARIO">
-                </p>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+              <p>
+                <input id="boton" type="submit" value="CREAR CUENTA">
+              </p>
+              <p>
+                <input id="boton" type="reset" value="REINICIAR FORMULARIO">
+              </p>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
       <?php
         include('footer.php');
       ?>
