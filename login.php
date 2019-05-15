@@ -1,3 +1,42 @@
+<?php
+
+require "datos.php";
+require "funciones.php";
+
+session_start();
+
+$match = null;
+
+if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
+
+  foreach ($usuarios_registrados as $usuario) {
+
+    if (($usuario["email"] == $_REQUEST["email"]) && ($usuario["pass"] == $_REQUEST["pass"])) {
+
+      $match = $usuario;
+
+      break;
+    }
+    
+  }
+
+  if (!$match) {
+    
+    $errors[]="El usuario y/o contraseña son incorrectos.";
+
+  } else {
+
+    $_SESSION["email"] = $usuario['email'];
+
+    header("location: index.php");
+  
+  }
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <?php
@@ -10,7 +49,8 @@
       ?>
 
       <div id="panel-form">
-        <form class="login" action="index.php" method="post">
+      <p><?= $errors[0] ?? '' ?></p>
+        <form class="login" action="login.php" method="post">
           <fieldset>
             <legend>Ingresá tus datos</legend>
             <p>

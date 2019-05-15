@@ -138,20 +138,23 @@
     [
       "usuario" => "LorenaC",
       "nombre" => "Lorena Citcioglu",
-      "contraseña" => "1234",
+      "pass" => "1234",
       "genero" => "f",
+      "email" => "lorecit@gmail.com",
     ],
     [
       "usuario" => "PedroM",
       "nombre" => "Pedro Martellotta",
-      "contraseña" => "6789",
+      "pass" => "6789",
       "genero" => "m",
+      "email" => "pedrom@hotmail.com",
     ],
     [
       "usuario" => "flavio@mail.com",
       "nombre" => "Flavio Hualpa",
-      "contraseña" => "abcd",
+      "pass" => "abcd",
       "genero" => "m",
+      "email" => "flavioh@gmail.com",
     ],
   ];
 

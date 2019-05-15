@@ -1,3 +1,4 @@
+
 <header id="encabezado">
   <h1>¿Qué Leo?</h1>
   <nav>
@@ -10,7 +11,7 @@
       </li>
       <li>
         <div>
-          <?php if ($sesion_iniciada) : ?>
+            <?php if ($sesion_iniciada) : ?>
             <?php if ($genero_usuario == "f") : ?>
               <span>Bienvenida,</span>
               <br>
