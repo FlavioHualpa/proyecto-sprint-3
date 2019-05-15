@@ -91,7 +91,7 @@
       "paginas" => 112,
       "precio" => 450.0,
       "ranking" => 1,
-    ], 
+    ],
     [
       "titulo" => "Templanza (Irma)",
       "autor" => "Julieta Santos",
@@ -136,14 +136,14 @@
 
   $usuarios_registrados = [
     [
-      "usuario" => "LorenaC",
+      "usuario" => "lorena@mail.com",
       "nombre" => "Lorena Citcioglu",
       "pass" => "1234",
       "genero" => "f",
       "email" => "lorecit@gmail.com",
     ],
     [
-      "usuario" => "PedroM",
+      "usuario" => "pedro@mail.com",
       "nombre" => "Pedro Martellotta",
       "pass" => "6789",
       "genero" => "m",
