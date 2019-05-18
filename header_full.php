@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 
 <header id="encabezado">
   <h1>¿Qué Leo?</h1>
@@ -11,15 +12,15 @@
       </li>
       <li>
         <div>
-            <?php if ($sesion_iniciada) : ?>
-            <?php if ($genero_usuario == "f") : ?>
+          <?php if (isset($_SESSION['id'])) : ?>
+            <?php if ($_SESSION['genero'] == "f") : ?>
               <span>Bienvenida,</span>
               <br>
-              <span><?= $nombre_usuario ?></span>
+              <span><?= $_SESSION['nombre'] ?></span>
             <?php else : ?>
               <span>Bienvenido,</span>
               <br>
-              <span><?= $nombre_usuario ?></span>
+              <span><?= $_SESSION['nombre'] ?></span>
             <?php endif; ?>
           <?php else : ?>
             <i class="fas fa-sign-in-alt"></i>
@@ -29,9 +30,9 @@
       </li>
       <li>
         <div>
-          <?php if ($sesion_iniciada) : ?>
+          <?php if (isset($_SESSION['id'])) : ?>
             <i class="fas fa-sign-out-alt"></i>
-            <a href="index.php">Cerrar Sesión</a>
+            <a href="cerrar.php">Cerrar Sesión</a>
           <?php else : ?>
             <i class="fas fa-user-plus"></i>
             <a href="registration.php">Crear una cuenta</a>

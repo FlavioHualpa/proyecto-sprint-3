@@ -1,35 +1,25 @@
 <?php
 
-require "datos.php";
-require "funciones.php";
-
+require 'funciones.php';
 session_start();
-
 $match = null;
 
 if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
 
-  foreach ($usuarios_registrados as $usuario) {
-
-    if (($usuario["email"] == $_REQUEST["email"]) && ($usuario["pass"] == $_REQUEST["pass"])) {
-
-      $match = $usuario;
-
-      break;
-    }
-    
-  }
+  $match = verificar_login($_REQUEST['email'], $_REQUEST['pass']);
 
   if (!$match) {
-    
+
     $errors[]="El usuario y/o contraseña son incorrectos.";
 
   } else {
 
-    $_SESSION["email"] = $usuario['email'];
+    $_SESSION["id"] = $usuario['id'];
+    $_SESSION["nombre"] = $usuario['nombre'];
+    $_SESSION["genero"] = $usuario['genero'];
 
     header("location: index.php");
-  
+
   }
 
 }
@@ -49,7 +39,8 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
       ?>
 
       <div id="panel-form">
-      <p><?= $errors[0] ?? '' ?></p>
+        <p class="texto-registration">¿No estás registrado? Ingresá tus datos en <a href="registration.php">esta página</a></p>
+        <p><?= $errors[0] ?? '' ?></p>
         <form class="login" action="login.php" method="post">
           <fieldset>
             <legend>Ingresá tus datos</legend>
@@ -60,6 +51,8 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
             <p>
               <label for="pass">Contraseña</label>
               <input id="pass" type="password" name="pass" value="" placeholder="Ingresar Contraseña">
+              <input type="checkbox" name="recordar" value="si" id="recordar">
+              <label for="recordar">Recordame</label>
             </p>
             <div class="botones">
               <p>
