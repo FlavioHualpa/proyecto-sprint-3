@@ -8,6 +8,7 @@
       <?php
         include('header_back.php');
       ?>
+      <div class="fondoLogYReg">
       <div id="panel-form">
         <form class="registration" action="index.php" method="post">
           <fieldset>
@@ -46,6 +47,7 @@
             </div>
           </fieldset>
         </form>
+      </div>
       </div>
 
       <?php

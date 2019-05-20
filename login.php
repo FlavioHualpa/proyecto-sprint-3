@@ -47,7 +47,7 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
       <?php
         include('header_back.php');
       ?>
-
+      <div class="fondoLogYReg">
       <div id="panel-form">
       <p><?= $errors[0] ?? '' ?></p>
         <form class="login" action="login.php" method="post">
@@ -68,6 +68,7 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
             </div>
           </fieldset>
         </form>
+      </div>
       </div>
 
       <?php

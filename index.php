@@ -20,30 +20,31 @@
       </h3>
       <div class="viñeta">
       </div>
-      <div class="prodsSection">
-        <?php foreach($novedades as $libro) : ?>
-        <article>
-          <div class="fondo-con-sombra">
-            <div class="tapaYTitulo">
-              <div class="tapa">
-                <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
-              </div>
-              <h4><?= $libro['titulo'] ?></h4>
-            </div>
-            <div class="ver-mas">
-              <i class="fas fa-eye"></i>
-              <span>VER DETALLES</span>
-            </div>
-          </div>
-          <div class="pie-de-articulo">
-            <span><?= '$ ' . $libro['precio'] ?></span>
-            <a href="#">comprar</a>
-          </div>
-        </article>
-        <?php endforeach ?>
-
-      </div>
     </section>
+    <div class="prodsSectionPrincipal">
+    <section class="prodsSection">
+      <?php foreach($novedades as $libro) : ?>
+      <article>
+        <div class="fondo-con-sombra">
+          <div class="tapaYTitulo">
+            <div class="tapa">
+              <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
+            </div>
+            <h4><?= $libro['titulo'] ?></h4>
+          </div>
+          <div class="ver-mas">
+            <i class="fas fa-eye"></i>
+            <span>VER DETALLES</span>
+          </div>
+        </div>
+        <div class="pie-de-articulo">
+          <span><?= '$ ' . $libro['precio'] ?></span>
+          <a href="#">comprar</a>
+        </div>
+      </article>
+      <?php endforeach ?>
+    </section>
+    </div>
 
         <!--
         <article class="libro2">
@@ -66,29 +67,27 @@
       </h3>
       <div class="viñeta">
       </div>
-
-      <div class="prodsSection">
-
-        <?php foreach($mas_vendidos_por_ranking as $libro) : ?>
-        <article>
-          <div class="fondo-con-sombra">
-            <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
-            <h4><?= $libro['titulo'] ?></h4>
-            <div class="ver-mas">
-              <i class="fas fa-eye"></i>
-              <span>VER DETALLES</span>
-            </div>
-          </div>
-          <div class="pie-de-articulo">
-            <span><?= '$ ' . $libro['precio'] ?></span>
-            <a href="#">comprar</a>
-          </div>
-        </article>
-        <?php endforeach ?>
-
-      </div>
     </section>
-
+    <div class="prodsSectionPrincipal">
+    <section class="prodsSection">
+      <?php foreach($mas_vendidos_por_ranking as $libro) : ?>
+      <article>
+        <div class="fondo-con-sombra">
+          <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
+          <h4><?= $libro['titulo'] ?></h4>
+          <div class="ver-mas">
+            <i class="fas fa-eye"></i>
+            <span>VER DETALLES</span>
+          </div>
+        </div>
+        <div class="pie-de-articulo">
+          <span><?= '$ ' . $libro['precio'] ?></span>
+          <a href="#">comprar</a>
+        </div>
+      </article>
+      <?php endforeach ?>
+    </section>
+    </div>
         <!--
         <article class="libro1">
           <img src="img/dlr_equilibrio.png" alt="FOTO NO DISPONIBLE">
