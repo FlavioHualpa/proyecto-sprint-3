@@ -3,6 +3,8 @@
   $sesion_iniciada = false;
   $nombre_usuario = null;
   $genero_usuario = null;
+
+  $mas_vendidos = leer_json('datos/masvendidos.json');
   $mas_vendidos_por_ranking = ordernar_por_ranking($mas_vendidos);
 
   /* esta función es para ordenar el array
@@ -55,9 +57,46 @@
     $genero_usuario = null;
   }
 
+  function leer_json($ruta) {
+
+    $json = null;
+
+    if (file_exists($ruta)) {
+      $txt = file_get_contents($ruta);
+      $json = json_decode($txt, true);
+    }
+
+    return $json;
+
+  }
+
+  function guardar_json($ruta, $array) {
+
+    $txt = json_encode($array);
+    $ok = file_put_contents($ruta, $txt);
+    return $ok;
+
+  }
+
+  function verificar_login($email, $pass) {
+
+    $usuarios = leer_json('datos/usuarios.json');
+
+    foreach ($usuarios as $usuario) {
+      if ($usuario['email'] == $email && password_verify($pass, $usuario['pass'])) {
+        return $usuario;
+      }
+    }
+
+    return null;
+  }
+
+  /*
   if ($_POST) {
     iniciar_sesion($usuarios_registrados, $_POST['email'], $_POST['pass']);
   } else {
     cerrar_sesion();
   }
+  */
+
 ?>

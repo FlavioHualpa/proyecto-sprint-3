@@ -1,13 +1,13 @@
-<?= include('datos.php'); ?>
-<?= include('funciones.php'); ?>
+<?php require 'datos.php'; ?>
+<?php require 'funciones.php'; ?>
 
 <!DOCTYPE html>
 <html lang="es">
-<?php include('head.php'); ?>
+<?php require 'head.php'; ?>
 
 <body>
   <div id="contenedor">
-    <?php include('header_full.php'); ?>
+    <?php require 'header_full.php'; ?>
     <div class="banner">
     </div>
     <section class="tituloSection">
@@ -102,7 +102,7 @@
     </section>
     -->
 
-    <?php include('footer.php'); ?>
+    <?php require 'footer.php'; ?>
   </div>
 </body>
 </html>
