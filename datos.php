@@ -158,4 +158,10 @@
     ],
   ];
 
+  $paises = [
+    "ar" => "Argentina",
+    "br" => "Brazil",
+    "ch" => "Chile",
+    "po" => "Portugal",
+  ];
 ?>

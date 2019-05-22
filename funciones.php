@@ -14,13 +14,14 @@
     return $array;
   }
 
+
   /* función de ayuda para que usort sepa
   /* cómo debe comparar los elementos del
   /* array para ordenarlos */
   function comp_rank($a, $b) {
     return $a["ranking"] - $b["ranking"];
   }
-
+  
   /* iniciar_sesion recibe 3 parámetros:
   /* $usuarios: el array de usuarios registrados
   /* $usuario_ingresado: el usuario que intenta iniciar sesión
@@ -70,9 +71,9 @@
 
   }
 
-  function guardar_json($ruta, $array) {
+  function guardar_json($ruta, $usuario) {
 
-    $txt = json_encode($array);
+    $txt = json_encode($usuario);
     $ok = file_put_contents($ruta, $txt);
     return $ok;
 
@@ -87,10 +88,33 @@
         return $usuario;
       }
     }
-
-    return null;
   }
 
+  function existe_usuario($email, $usuario) {
+    $usuarios = leer_json('datos/usuarios.json');
+  
+      foreach ($usuarios as $valor) {
+        if ($valor['email'] == $email || $valor['usuario'] == $usuario) {
+          return true;
+        }
+      }
+
+    return false;
+  }
+
+  function crear_usuario($datos) {
+    $usuario = [
+      'nombre' => $datos['nombre'],
+      'apellido' => $datos['apellido'],
+      'usuario' => $datos['usuario'],
+      'email' => $datos['email'],
+      'paisNacimiento' => $datos['paisNacimiento'],
+      'nacimiento' => $datos['nacimiento'],
+      'sexo' => $datos['sexo'],
+      'pass' => password_hash ($datos['pass'], PASSWORD_DEFAULT),
+    ];
+    return $usuario;
+  }
   /*
   if ($_POST) {
     iniciar_sesion($usuarios_registrados, $_POST['email'], $_POST['pass']);
