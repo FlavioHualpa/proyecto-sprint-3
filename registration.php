@@ -1,6 +1,7 @@
 <?php
 include('funciones.php');
 
+$paises = leer_json('datos/paises.json');
 $errores = [];
 
   if ($_POST) {
@@ -15,7 +16,7 @@ $errores = [];
     } else
     if (strpbrk($_POST["apellido"], "0123456789")) {
       $errores["apellido"][] = "El apellido no debe contener números";
-    } 
+    }
     if (!isset($_POST["usuario"]) || empty($_POST["usuario"])) {
       $errores["usuario"][] = "El usuario es requerido";
     } else
@@ -24,7 +25,7 @@ $errores = [];
     }
     if (!isset($_POST["email"]) || empty($_POST["email"])) {
       $errores["email"][] = "El email es requerido";
-    } else 
+    } else
       if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
       $errores["email"][] = "El email ingresado no es válido";
       }
@@ -47,8 +48,7 @@ $errores = [];
       if (existe_usuario($_POST['email'], $_POST['usuario'])) {
         $errores["submit"][] = "El usuario/email ya existe.";
       } else {
-        $usuario = crear_usuario($_POST);
-        guardar_json("datos/usuarios.json", $usuario);
+        guardar_usuario($_POST);
       }
 
     }
@@ -60,7 +60,7 @@ $errores = [];
 <html lang="en" dir="ltr">
   <?php
     include('head.php');
-    include('datos.php');
+    // include('datos.php');
   ?>
   <body>
     <div id="contenedor">
@@ -97,7 +97,7 @@ $errores = [];
                 <label for="paisNacimiento">País de Nacimiento:</label>
                 <select name="paisNacimiento" id="paisNacimiento">
                   <?php foreach ($paises as $codigo => $pais):?>
-                  <option value="<?= $codigo ?>"><?= $pais ?></option> 
+                    <option value="<?= $codigo ?>"><?= $pais ?></option>
                   <?php endforeach ?>
                 </select>
               </p>

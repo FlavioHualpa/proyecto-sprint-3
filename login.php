@@ -1,29 +1,38 @@
 <?php
 
-require 'funciones.php';
 session_start();
+require 'funciones.php';
 $match = null;
+$errores = [];
 
-if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
+if ($_POST) {
+  $errores = validar_login();
 
-  $match = verificar_login($_REQUEST['email'], $_REQUEST['pass']);
+  //if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
+  //var_dump($errores);
+  if (empty($errores)) {
 
-  if (!$match) {
+    $match = verificar_login($_REQUEST['email'], $_REQUEST['pass']);
 
-    $errors[]="El usuario y/o contraseña son incorrectos.";
+    if (!$match) {
 
-  } else {
+      $errores['login'] = 'El usuario y/o contraseña son incorrectos.';
 
-    $_SESSION["id"] = $usuario['id'];
-    $_SESSION["nombre"] = $usuario['nombre'];
-    $_SESSION["genero"] = $usuario['genero'];
+    } else {
 
-    header("location: index.php");
+      $_SESSION["id"] = $match['id'];
+      $_SESSION["nombre"] = $match['nombre'];
+      $_SESSION["genero"] = $match['sexo'];
 
+      if (isset($_POST['recordar'])) {
+        setcookie('id', $match['id'], time() + 60*60*24*7);
+      }
+
+      header("location: index.php");
+
+    }
   }
-
 }
-
 
 ?>
 
@@ -40,17 +49,21 @@ if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
       <div class="fondoLogYReg">
       <div id="panel-form">
         <p class="texto-registration">¿No estás registrado? Ingresá tus datos en <a href="registration.php">esta página</a></p>
-        <p><?= $errors[0] ?? '' ?></p>
+        <p class="error-usuario"><?= $errores['login'] ?? '' ?></p>
         <form class="login" action="login.php" method="post">
           <fieldset>
             <legend>Ingresá tus datos</legend>
             <p>
               <label for="email">Usuario</label>
-              <input id="email" type="email" name="email" value="" placeholder="user@email.com">
+              <input id="email" type="text" name="email" value="<?= $_POST['email'] ?? '' ?>" placeholder="user@email.com">
+              <p class="error-login"><?= $errores['email'] ?? '' ?></p>
             </p>
             <p>
               <label for="pass">Contraseña</label>
-              <input id="pass" type="password" name="pass" value="" placeholder="Ingresar Contraseña">
+              <input id="pass" type="password" name="pass" value="<?= $_POST['pass'] ?? '' ?>" placeholder="Ingresar Contraseña">
+              <p class="error-login"><?= $errores['pass'] ?? '' ?></p>
+            </p>
+            <p>
               <input type="checkbox" name="recordar" value="si" id="recordar">
               <label for="recordar">Recordame</label>
             </p>

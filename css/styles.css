@@ -222,7 +222,7 @@ body {
   font-family: 'Lora', serif;
   font-size: 16px;
   color: #304878;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 #encabezado nav ul li:hover div {
@@ -301,6 +301,8 @@ body {
   width: 100%;
   color: #676745;
   margin: 20px auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
   border-left: none;
   border-right: none;
 }
@@ -340,6 +342,21 @@ body {
 }
 .login fieldset p input[type="submit"]:hover {
   background-color: #0090ff;
+  color: white;
+}
+
+.error-login {
+  font-size: 18px;
+  color: #c00000;
+  margin-top: -10px;
+  margin-bottom: 6px;
+}
+
+.error-usuario {
+  font-size: 22px;
+  color: #c00000;
+  margin-top: 12px;
+  margin-bottom: 6px;
 }
 
 .registration fieldset {

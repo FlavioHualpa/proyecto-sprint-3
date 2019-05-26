@@ -1,11 +1,9 @@
 <?php
 
-  $sesion_iniciada = false;
-  $nombre_usuario = null;
-  $genero_usuario = null;
-
   $mas_vendidos = leer_json('datos/masvendidos.json');
   $mas_vendidos_por_ranking = ordernar_por_ranking($mas_vendidos);
+
+  $novedades = leer_json('datos/novedades.json');
 
   /* esta función es para ordenar el array
   /* de libros por su ranking de ventas */
@@ -14,48 +12,11 @@
     return $array;
   }
 
-
   /* función de ayuda para que usort sepa
   /* cómo debe comparar los elementos del
   /* array para ordenarlos */
   function comp_rank($a, $b) {
     return $a["ranking"] - $b["ranking"];
-  }
-  
-  /* iniciar_sesion recibe 3 parámetros:
-  /* $usuarios: el array de usuarios registrados
-  /* $usuario_ingresado: el usuario que intenta iniciar sesión
-  /* $clave_ingresada: la clave del usuario
-  /* Si la combinación de usuario y clave existe dentro de $usuarios
-  /* se establece la variable $sesion_iniciada a true */
-  function iniciar_sesion($usuarios, $usuario_ingresado, $clave_ingresada) {
-
-    global $sesion_iniciada;
-    global $nombre_usuario;
-    global $genero_usuario;
-
-    foreach ($usuarios as $usuario) {
-      if ($usuario["usuario"] == $usuario_ingresado && $usuario["contraseña"] == $clave_ingresada) {
-        $sesion_iniciada = true;
-        $nombre_usuario = $usuario["nombre"];
-        $genero_usuario = $usuario["genero"];
-        break;
-      }
-    }
-    return $sesion_iniciada;
-  }
-
-  /* se indica el cierre de una sesión estableciendo la variable
-  /* $sesion_iniciada a false y $nombre_usuario a null */
-  function cerrar_sesion() {
-
-    global $sesion_iniciada;
-    global $nombre_usuario;
-    global $genero_usuario;
-
-    $sesion_iniciada = false;
-    $nombre_usuario = null;
-    $genero_usuario = null;
   }
 
   function leer_json($ruta) {
@@ -79,6 +40,22 @@
 
   }
 
+  function validar_login() {
+    $errores = [];
+
+    if (!isset($_POST['email']) || empty(trim($_POST['email']))) {
+      $errores['email'] = 'El email del usuario es requerido';
+    } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
+      $errores['email'] = 'El email ingresado no es válido';
+    }
+
+    if (!isset($_POST['pass']) || empty(trim($_POST['pass']))) {
+      $errores['pass'] = 'La contraseña es requerida';
+    }
+
+    return $errores;
+  }
+
   function verificar_login($email, $pass) {
 
     $usuarios = leer_json('datos/usuarios.json');
@@ -88,39 +65,69 @@
         return $usuario;
       }
     }
+
+    return null;
   }
 
   function existe_usuario($email, $usuario) {
     $usuarios = leer_json('datos/usuarios.json');
-  
+
+    if ($usuarios) {
       foreach ($usuarios as $valor) {
         if ($valor['email'] == $email || $valor['usuario'] == $usuario) {
           return true;
         }
       }
+    }
 
     return false;
   }
 
-  function crear_usuario($datos) {
+  function usuario_por_id($id) {
+    $usuarios = leer_json('datos/usuarios.json');
+
+    if ($usuarios) {
+      foreach ($usuarios as $usuario) {
+        if ($usuario['id'] == $id) {
+          return $usuario;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function guardar_usuario() {
+    $usuarios = leer_json('datos/usuarios.json');
+    if ($usuarios) {
+      $id = $usuarios[count($usuarios)-1]['id'] + 1;
+    } else {
+      $id = 1;
+      $usuarios = [];
+    }
+
+    if (isset($_FILES['avatar'])) {
+      $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+      $url = md5($_FILES['avatar']['name'] . '-' . time()) . $ext;
+    } else {
+      $url = '';
+    }
+
     $usuario = [
-      'nombre' => $datos['nombre'],
-      'apellido' => $datos['apellido'],
-      'usuario' => $datos['usuario'],
-      'email' => $datos['email'],
-      'paisNacimiento' => $datos['paisNacimiento'],
-      'nacimiento' => $datos['nacimiento'],
-      'sexo' => $datos['sexo'],
-      'pass' => password_hash ($datos['pass'], PASSWORD_DEFAULT),
+      'id' => $id,
+      'nombre' => $_POST['nombre'],
+      'apellido' => $_POST['apellido'],
+      'usuario' => $_POST['usuario'],
+      'email' => $_POST['email'],
+      'paisNacimiento' => $_POST['paisNacimiento'],
+      'nacimiento' => $_POST['nacimiento'],
+      'sexo' => $_POST['sexo'],
+      'pass' => password_hash($_POST['pass'], PASSWORD_DEFAULT),
+      'avatar_url' => $url,
     ];
-    return $usuario;
+
+    $usuarios[] = $usuario;
+    guardar_json('datos/usuarios.json', $usuarios);
   }
-  /*
-  if ($_POST) {
-    iniciar_sesion($usuarios_registrados, $_POST['email'], $_POST['pass']);
-  } else {
-    cerrar_sesion();
-  }
-  */
 
 ?>

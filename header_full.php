@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php
+
+  session_start();
+
+  if (isset($_COOKIE['id'])) {
+    $usuario = usuario_por_id($_COOKIE['id']);
+    if ($usuario) {
+      $_SESSION['id'] = $usuario['id'];
+      $_SESSION['genero'] = $usuario['sexo'];
+      $_SESSION['nombre'] = $usuario['nombre'];
+    }
+  }
+
+  if (isset($_SESSION['genero'])) {
+    if ($_SESSION['genero'] == 'f') {
+      $saludo = 'Bienvenida,';
+    } else {
+      $saludo = 'Bienvenido,';
+    }
+  }
+
+?>
 
 <header id="encabezado">
   <h1>¿Qué Leo?</h1>
@@ -13,15 +34,9 @@
       <li>
         <div>
           <?php if (isset($_SESSION['id'])) : ?>
-            <?php if ($_SESSION['genero'] == "f") : ?>
-              <span>Bienvenida,</span>
-              <br>
-              <span><?= $_SESSION['nombre'] ?></span>
-            <?php else : ?>
-              <span>Bienvenido,</span>
-              <br>
-              <span><?= $_SESSION['nombre'] ?></span>
-            <?php endif; ?>
+            <span><?= $saludo ?></span>
+            <br>
+            <span><?= $_SESSION['nombre'] ?></span>
           <?php else : ?>
             <i class="fas fa-sign-in-alt"></i>
             <a href="login.php">Ingresar</a>

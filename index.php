@@ -1,4 +1,3 @@
-<?php require 'datos.php'; ?>
 <?php require 'funciones.php'; ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,7 @@
     </section>
     <div class="prodsSectionPrincipal">
     <section class="prodsSection">
+      <?php $mostrados = 0; ?>
       <?php foreach($novedades as $libro) : ?>
       <article>
         <div class="fondo-con-sombra">
@@ -42,7 +42,13 @@
           <a href="#">comprar</a>
         </div>
       </article>
-      <?php endforeach ?>
+      <?php
+        $mostrados++;
+        if ($mostrados == 6) {
+          break;
+        }
+        endforeach;
+      ?>
     </section>
     </div>
 
@@ -70,6 +76,7 @@
     </section>
     <div class="prodsSectionPrincipal">
     <section class="prodsSection">
+      <?php $mostrados = 0; ?>
       <?php foreach($mas_vendidos_por_ranking as $libro) : ?>
       <article>
         <div class="fondo-con-sombra">
@@ -85,7 +92,13 @@
           <a href="#">comprar</a>
         </div>
       </article>
-      <?php endforeach ?>
+      <?php
+        $mostrados++;
+        if ($mostrados == 6) {
+          break;
+        }
+        endforeach;
+      ?>
     </section>
     </div>
         <!--
