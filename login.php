@@ -20,15 +20,14 @@ if ($_POST) {
 
     } else {
 
-      $_SESSION["id"] = $match['id'];
-      $_SESSION["nombre"] = $match['nombre'];
-      $_SESSION["genero"] = $match['sexo'];
+      set_session_data($match);
 
       if (isset($_POST['recordar'])) {
         setcookie('id', $match['id'], time() + 60*60*24*7);
       }
 
       header("location: index.php");
+      exit;
 
     }
   }
