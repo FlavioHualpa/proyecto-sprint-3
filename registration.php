@@ -3,7 +3,6 @@ include('funciones.php');
 
 $paises = leer_json('datos/paises.json');
 $errores = [];
-
   if ($_POST) {
     if (!isset($_POST["nombre"]) || empty($_POST["nombre"])) {
       $errores["nombre"][] = "El nombre es requerido";
@@ -29,6 +28,21 @@ $errores = [];
       if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
       $errores["email"][] = "El email ingresado no es válido";
       }
+    if (!isset($_POST["nacimiento"]) || empty($_POST["nacimiento"])) {
+      $errores["nacimiento"][] = "La fecha de nacimiento es requerida";
+    } else
+      if ((time()-strtotime($_POST["nacimiento"]))/(60*60*24*365.25)<18) {
+      $errores["nacimiento"][] = "El usuario debe tener al menos 18 años de edad.";
+      }
+    if (!isset($_POST["sexo"]) || empty($_POST["sexo"])) {
+        $errores["sexo"][] = "Debe seleccionar una opción.";
+      }
+    if ($_FILES["avatar"]["error"] != 0){
+        $errores["avatar"][] = "El archivo no se subió correctamente.";
+    } else
+    if (pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "png" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "pdf") {
+      $errores["avatar"][] = "El archivo debe ser del tipo '.jpg', '.png' o '.pdf'.";
+    }
     if (!isset($_POST["pass"]) || empty($_POST["pass"])) {
         $errores["pass"][] = "La contraseña es requerida";
       } else
@@ -69,33 +83,33 @@ $errores = [];
       ?>
       <div class="fondoLogYReg">
       <div id="panel-form">
-        <form class="registration" action="registration.php" method="post" enctype="multipart/form-data  ">
+        <form class="registration" action="registration.php" method="post" enctype="multipart/form-data">
           <fieldset>
-          <?= $errores["submit"][0] ?? "" ?>
+          <p class="error-regist"><?= $errores["submit"][0] ?? "" ?></p>
             <legend>Crea tu cuenta</legend>
               <p>
                 <label for="nombre">Nombre:</label>
                 <input id="nombre" type="text" name="nombre" value="<?= $_POST['nombre'] ?? "" ?>">
-                <?= $errores["nombre"][0] ?? "" ?>
+                <p class="error-regist"><?= $errores["nombre"][0] ?? "" ?></p>
               </p>
               <p>
                 <label for="apellido">Apellido:</label>
-                <input id="apellido" type="text" name="apellido" value="">
-                <?= $errores["apellido"][0] ?? "" ?>
+                <input id="apellido" type="text" name="apellido" value="<?= $_POST['apellido'] ?? "" ?>">
+                <p class="error-regist"><?= $errores["apellido"][0] ?? "" ?></p>
               </p>
               <p>
                 <label for="usuario">Usuario:</label>
-                <input id="usuario" type="text" name="usuario" value="">
-                <?= $errores["usuario"][0] ?? "" ?>
+                <input id="usuario" type="text" name="usuario" value="<?= $_POST['usuario'] ?? "" ?>">
+                <p class="error-regist"><?= $errores["usuario"][0] ?? "" ?></p>
               </p>
               <p>
                 <label for="email">Email:</label>
-                <input id="email" type="text" name="email" value="">
-                <?= $errores["email"][0] ?? "" ?>
+                <input id="email" type="text" name="email" value="<?= $_POST['email'] ?? "" ?>">
+                <p class="error-regist"><?= $errores["email"][0] ?? "" ?></p>
               </p>
               <p>
                 <label for="paisNacimiento">País de Nacimiento:</label>
-                <select name="paisNacimiento" id="paisNacimiento">
+                <select name="paisNacimiento" id="paisNacimiento" value="<?= $_POST['paisNacimiento'] ?? "" ?>">
                   <?php foreach ($paises as $codigo => $pais):?>
                     <option value="<?= $codigo ?>"><?= $pais ?></option>
                   <?php endforeach ?>
@@ -104,39 +118,54 @@ $errores = [];
               <p>
                 <label for="nacimiento">Fecha de Nacimiento:</label>
                 <input id="nacimiento" type="date" name="nacimiento" value="">
+                <p class="error-regist"><?= $errores["nacimiento"][0] ?? "" ?></p>
               </p>
               <p>
                 <label>Sexo:</label>
-                <input id="mujer" type="radio" name="sexo" value="f">
-                <label for="mujer">Femenino</label>
-                <input id="hombre" type="radio" name="sexo" value="m">
-                <label for="hombre">Masculino</label>
+                <div class="sexo">
+                  <div class="sexo_fem">
+                    <input id="mujer" type="radio" name="sexo" value="f">
+                    <label for="mujer">Femenino</label>
+                  </div>
+                  <div class="sexo_masc">
+                    <input id="hombre" type="radio" name="sexo" value="m">
+                    <label for="hombre">Masculino</label>
+                  </div>
+                <p class="error-regist"><?= $errores["sexo"][0] ?? "" ?></p>
               </p>
               <p>
-                <label for="avatar">Sube una foto:</label>
-                <input id="avatar" type="file" name="avatar" value="">
+                <div class="avatar_button">
+                  <label for="avatar_button">Subir una foto:</label>
+                  <br>
+                  <div class="avatar_button_2">
+                    <input id="avatar" type="file" name="avatar" style="none">
+                  </div>
+                  <p class="error-regist"><?= $errores["avatar"][0] ?? "" ?></p>
+                </div>
               </p>
               <p>
                 <label for="pass">Ingresar Contraseña:</label>
                 <input id="pass" type="password" name="pass" value="">
               </p>
-              <?= $errores["pass"][0] ?? "" ?>
+              <p class="error-regist"><?= $errores["pass"][0] ?? "" ?></p>
               <p>
                 <label for="pass2">Reingresar Contraseña:</label>
                 <input id="pass2" type="password" name="pass2" value="">
-                <?= $errores["pass2"][0] ?? "" ?>
+                <p class="error-regist"><?= $errores["pass2"][0] ?? "" ?></p>
               </p>
               <p>
-                <input id="terms" type="checkbox" name="terms">
-                <label for="terms">Acepta <a href="#">términos y condiciones</a></label>
-                <?= $errores["terms"][0] ?? "" ?>
+                <div class="terminos">
+                  <input id="terms" type="checkbox" name="terms">
+                  <label for="terms">Acepta <a href="#" id="link_hipervinculo">términos y condiciones</a></label>
+                </div>
+                <p class="error-regist"><?= $errores["terms"][0] ?? "" ?></p>
               </p>
               <div class="botones">
               <p>
                 <input id="boton" type="submit" value="CREAR CUENTA">
               </p>
               <p>
-                <input id="boton" type="reset" value="REINICIAR FORMULARIO">
+                <input id="boton" type="reset" value="REINICIAR FORMULARIO" form>
               </p>
             </div>
           </fieldset>

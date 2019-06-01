@@ -48,7 +48,7 @@ if ($_POST) {
       ?>
       <div class="fondoLogYReg">
       <div id="panel-form">
-        <p class="texto-registration">¿No estás registrado? Ingresá tus datos en <a href="registration.php">esta página</a></p>
+        <p class="texto-registration">¿No estás registrado? Ingresá tus datos en este <a href="registration.php" id="link_hipervinculo">link</a></p>
         <p class="error-usuario"><?= $errores['login'] ?? '' ?></p>
         <form class="login" action="login.php" method="post">
           <fieldset>
@@ -65,7 +65,7 @@ if ($_POST) {
             </p>
             <p>
               <input type="checkbox" name="recordar" value="si" id="recordar">
-              <label for="recordar">Recordame</label>
+              <label for="recordar">Recordarme</label>
             </p>
             <div class="botones">
               <p>

@@ -8,20 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/*
-body {
-  background-image: url(../img/fondo6.jpg);
-}
-*/
-/*
-#contenedor {
-  min-width: 360px;
-  max-width: 960px;
-}
-*/
-
 #encabezado h1 {
-  /*background-image: url(../img/dark-paths.png);*/
   background-color: #304878;
   font-family: 'Lobster', cursive;
   font-size: 72px;
@@ -284,12 +271,17 @@ body {
 
 #panel-form {
   padding: 20px;
-  margin: 40px auto;
+  margin: 40px 10px;
   max-width: 600px;
   background-color: rgba(0, 24, 48, 0.2);
   border-radius: 6px;
 }
 
+.texto-registration {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: black;
+}
 .login .registration {
   width: 100%;
 }
@@ -298,7 +290,7 @@ body {
   text-decoration: none;
   font-family: 'Lora', serif;
   font-size: 24px;
-  width: 100%;
+  width: 90%;
   color: #676745;
   margin: 20px auto;
   padding-top: 20px;
@@ -332,6 +324,7 @@ body {
   border-radius: 6px;
   width: auto;
   font-size: 26px;
+  cursor: pointer;
 }
 .login fieldset p input[type="reset"] {
   margin-top: 20px;
@@ -345,15 +338,21 @@ body {
   color: white;
 }
 
-.error-login {
-  font-size: 18px;
+#link_hipervinculo {
+  text-decoration: none;
+  color: #304878;
+}
+#recordar {
+width: 10%;
+}
+.error-login, .error-regist {
+  font-size: 14px;
   color: #c00000;
-  margin-top: -10px;
-  margin-bottom: 6px;
+  margin-top: 2px;
 }
 
 .error-usuario {
-  font-size: 22px;
+  font-size: 16px;
   color: #c00000;
   margin-top: 12px;
   margin-bottom: 6px;
@@ -374,10 +373,44 @@ body {
   color: #202020;
 }
 
-.registration fieldset p label {
+.registration fieldset p label, .terminos, .sexo_fem, .sexo_masc, label[for="avatar_button"] {
   font-size: 18px;
   color: #202020;
 }
+
+.avatar_button_2 {
+  text-align: center;
+}
+/*EMPIEZA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando
+
+.registration fieldset p input[type="file"] {
+width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+}
+
+.registration fieldset p label[for="avatar_button"] {
+  font-size: 20px;
+  color: #676745;
+  background-color: white;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  width: fit-content;
+  text-align: center;
+  border-radius: 6px;
+  margin: 10px;
+  }
+
+.registration fieldset p label[for="avatar_button"]:hover {
+  background-color: #c0c0c0;
+}
+TERMINA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando */
+
 
 .registration fieldset p input {
   margin: 0 auto 10px auto;
@@ -388,14 +421,16 @@ body {
   color: #676745;
 }
 
+
 .registration fieldset p input[type="submit"],
-.registracion fieldset p input[type="reset"] {
+.registration fieldset p input[type="reset"] {
   margin-top: 20px;
   padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  width: auto;
+  width: aut: ;o;
   font-size: 26px;
+  cursor: pointer;
 }
 
 .registration fieldset p input[type="submit"] {
@@ -407,8 +442,19 @@ body {
   background-color: #0090ff;
 }
 
-.registracion fieldset p input[type="reset"]:hover {
+.registration fieldset p input[type="reset"]:hover {
   background-color: #c0c0c0;
+}
+
+.registration fieldset legend p .sexo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.terminos {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
 }
 
 .botones {

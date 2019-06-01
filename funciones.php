@@ -106,11 +106,13 @@
       $usuarios = [];
     }
 
-    if (isset($_FILES['avatar'])) {
-      $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
-      $url = md5($_FILES['avatar']['name'] . '-' . time()) . $ext;
+    if (!empty($_FILES)) {
+      $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION); /*esto nos da la extension del archivo*/
+      $hashed_name = md5($_FILES['avatar']['name'] . '-' . time()) . ".". $ext; /*esto genera una cadena de texto irrepetible, concatenado con la hora*/
+      $path = 'uploads/' . $hashed_name; /*esto genera la ruta de guardado del archivo y su nombre*/
+      move_uploaded_file($_FILES['avatar']['tmp_name'], $path); /*esto copia el directorio temporal en la ruta definida y con el nombre único generado*/
     } else {
-      $url = '';
+      $hashed_name = '';
     }
 
     $usuario = [
@@ -123,11 +125,16 @@
       'nacimiento' => $_POST['nacimiento'],
       'sexo' => $_POST['sexo'],
       'pass' => password_hash($_POST['pass'], PASSWORD_DEFAULT),
-      'avatar_url' => $url,
+      'avatar_url' => $hashed_name,
     ];
 
     $usuarios[] = $usuario;
     guardar_json('datos/usuarios.json', $usuarios);
   }
+
+function validar_registracion() {
+
+}
+
 
 ?>
