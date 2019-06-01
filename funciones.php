@@ -106,7 +106,7 @@
       $usuarios = [];
     }
 
-    if (!empty($_FILES)) {
+    if (!empty($_FILES) && !empty($_FILES['avatar']['name'])) {
       $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION); /*esto nos da la extension del archivo*/
       $hashed_name = md5($_FILES['avatar']['name'] . '-' . time()) . ".". $ext; /*esto genera una cadena de texto irrepetible, concatenado con la hora*/
       $path = 'uploads/' . $hashed_name; /*esto genera la ruta de guardado del archivo y su nombre*/

@@ -37,11 +37,13 @@ $errores = [];
     if (!isset($_POST["sexo"]) || empty($_POST["sexo"])) {
         $errores["sexo"][] = "Debe seleccionar una opción.";
       }
-    if ($_FILES["avatar"]["error"] != 0){
-        $errores["avatar"][] = "El archivo no se subió correctamente.";
-    } else
-    if (pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "png" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "pdf") {
-      $errores["avatar"][] = "El archivo debe ser del tipo '.jpg', '.png' o '.pdf'.";
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['name'] != '') {
+      if ($_FILES["avatar"]["error"] != 0){
+          $errores["avatar"][] = "El archivo no se subió correctamente.";
+      } else
+      if (pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "png" && pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION) != "gif") {
+        $errores["avatar"][] = "El archivo debe ser del tipo '.jpg', '.png' o '.gif'.";
+      }
     }
     if (!isset($_POST["pass"]) || empty($_POST["pass"])) {
         $errores["pass"][] = "La contraseña es requerida";
@@ -62,7 +64,9 @@ $errores = [];
       if (existe_usuario($_POST['email'], $_POST['usuario'])) {
         $errores["submit"][] = "El usuario/email ya existe.";
       } else {
-        guardar_usuario($_POST);
+        guardar_usuario();
+        header('location: index.php');
+        exit();
       }
 
     }
@@ -165,7 +169,7 @@ $errores = [];
                 <input id="boton" type="submit" value="CREAR CUENTA">
               </p>
               <p>
-                <input id="boton" type="reset" value="REINICIAR FORMULARIO" form>
+                <input id="boton" type="reset" value="REINICIAR FORMULARIO">
               </p>
             </div>
           </fieldset>

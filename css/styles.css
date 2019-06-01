@@ -412,7 +412,8 @@ z-index: -1;
 TERMINA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando */
 
 
-.registration fieldset p input {
+.registration fieldset p input,
+.registration fieldset p select {
   margin: 0 auto 10px auto;
   width: 100%;
   text-align: center;
