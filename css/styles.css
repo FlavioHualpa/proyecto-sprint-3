@@ -208,6 +208,7 @@ html {
 #encabezado nav ul li div {
   font-family: 'Lora', serif;
   font-size: 16px;
+  font-weight: bold;
   color: #304878;
   transition: 0.2s;
 }
@@ -381,9 +382,10 @@ width: 10%;
 .avatar_button_2 {
   text-align: center;
 }
-/*EMPIEZA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando
 
-.registration fieldset p input[type="file"] {
+/*EMPIEZA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando*/
+
+.registration fieldset p div input[type="file"] {
 width: 0.1px;
 height: 0.1px;
 opacity: 0;
@@ -409,10 +411,12 @@ z-index: -1;
 .registration fieldset p label[for="avatar_button"]:hover {
   background-color: #c0c0c0;
 }
-TERMINA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando */
+
+/*TERMINA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando*/
 
 
-.registration fieldset p input {
+.registration fieldset p input,
+.registration fieldset p select {
   margin: 0 auto 10px auto;
   width: 100%;
   text-align: center;

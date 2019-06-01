@@ -165,7 +165,7 @@ $errores = [];
                 <input id="boton" type="submit" value="CREAR CUENTA">
               </p>
               <p>
-                <input id="boton" type="reset" value="REINICIAR FORMULARIO" form>
+                <input id="boton" type="reset" value="REINICIAR FORMULARIO">
               </p>
             </div>
           </fieldset>

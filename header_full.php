@@ -34,9 +34,15 @@
       <li>
         <div>
           <?php if (isset($_SESSION['id'])) : ?>
-            <span><?= $saludo ?></span>
-            <br>
-            <span><?= $_SESSION['nombre'] ?></span>
+            <div style="display: inline-block;">
+              <div style="background-image: url('uploads/retrato (5).png'); background-size: 40px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid #a09090; vertical-align: middle;">
+              </div>
+            </div>
+            <div style="display: inline-block;">
+              <span><?= $saludo ?></span>
+              <br>
+              <span><?= $_SESSION['nombre'] ?></span>
+            </div>
           <?php else : ?>
             <i class="fas fa-sign-in-alt"></i>
             <a href="login.php">Ingresar</a>
