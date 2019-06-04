@@ -25,12 +25,15 @@ if ($_POST) {
       if (isset($_POST['recordar'])) {
         setcookie('id', $match['id'], time() + 60*60*24*7);
       }
-
       header("location: index.php");
       exit;
-
     }
   }
+} else {
+  if (isset($_COOKIE['usuario'])) {
+    $_POST['email'] = $_COOKIE['usuario'];
+  }
+
 }
 
 ?>
