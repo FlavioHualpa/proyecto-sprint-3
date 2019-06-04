@@ -23,13 +23,19 @@ if ($_POST) {
       set_session_data($match);
 
       if (isset($_POST['recordar'])) {
-        setcookie('id', $match['id'], time() + 60*60*24*7);
+        setcookie('usuario', $match['email'], time() + 60*60*24*7);
+      } else {
+        setcookie('usuario', '', -1);
       }
 
       header("location: index.php");
       exit;
 
     }
+  }
+} else {
+  if (isset($_COOKIE['usuario'])) {
+    $_POST['email'] = $_COOKIE['usuario'];
   }
 }
 
@@ -63,7 +69,8 @@ if ($_POST) {
               <p class="error-login"><?= $errores['pass'] ?? '' ?></p>
             </p>
             <p>
-              <input type="checkbox" name="recordar" value="si" id="recordar">
+              <input type="checkbox" name="recordar" value="si" id="recordar" <?= isset($_COOKIE['usuario']) ? 'checked' : '' ?>
+              >
               <label for="recordar">Recordarme</label>
             </p>
             <div class="botones">
