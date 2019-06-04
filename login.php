@@ -7,6 +7,7 @@ $errores = [];
 
 if ($_POST) {
   $errores = validar_login();
+  var_dump($errores);
 
   //if (isset($_REQUEST["email"]) && isset($_REQUEST["pass"])){
   //var_dump($errores);
@@ -57,7 +58,7 @@ if ($_POST) {
           <fieldset>
             <legend>Ingresá tus datos</legend>
             <p>
-              <label for="email">Usuario</label>
+              <label for="email">Email</label>
               <input id="email" type="text" name="email" value="<?= $_POST['email'] ?? '' ?>" placeholder="user@email.com">
               <p class="error-login"><?= $errores['email'] ?? '' ?></p>
             </p>

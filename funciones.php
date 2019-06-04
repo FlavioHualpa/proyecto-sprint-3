@@ -43,8 +43,8 @@
   function validar_login() {
     $errores = [];
 
-    if (!isset($_POST['usuario']) || empty(trim($_POST['usuario']))) {
-      $errores['usuario'] = 'El usuario es requerido';
+    if (!isset($_POST['email']) || empty(trim($_POST['email']))) {
+      $errores['email'] = 'El email es requerido';
     }
 
     if (!isset($_POST['pass']) || empty(trim($_POST['pass']))) {
@@ -59,7 +59,7 @@
     $usuarios = leer_json('datos/usuarios.json');
 
     foreach ($usuarios as $usuario) {
-      if ($usuario['usuario'] == $user && password_verify($pass, $usuario['pass'])) {
+      if ($usuario['email'] == $user && password_verify($pass, $usuario['pass'])) {
         return $usuario;
       }
     }
