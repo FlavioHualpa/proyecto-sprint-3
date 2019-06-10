@@ -44,9 +44,7 @@
     $errores = [];
 
     if (!isset($_POST['email']) || empty(trim($_POST['email']))) {
-      $errores['email'] = 'El email del usuario es requerido';
-    } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
-      $errores['email'] = 'El email ingresado no es válido';
+      $errores['email'] = 'El email es requerido';
     }
 
     if (!isset($_POST['pass']) || empty(trim($_POST['pass']))) {
@@ -56,12 +54,12 @@
     return $errores;
   }
 
-  function verificar_login($email, $pass) {
+  function verificar_login($user, $pass) {
 
     $usuarios = leer_json('datos/usuarios.json');
 
     foreach ($usuarios as $usuario) {
-      if ($usuario['email'] == $email && password_verify($pass, $usuario['pass'])) {
+      if ($usuario['email'] == $user && password_verify($pass, $usuario['pass'])) {
         return $usuario;
       }
     }
