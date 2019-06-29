@@ -50,7 +50,8 @@ abstract class DbInteract
             $this->cmd = $this->db->prepare($this->selectQuery);
             $this->cmd->execute($parametros);
             return true;
-         } catch (\Exception $e) {
+         }
+         catch (\Exception $e) {
          }
       }
       return false;
@@ -63,7 +64,8 @@ abstract class DbInteract
             $this->cmd = $this->db->prepare($this->insertQuery);
             $this->cmd->execute($parametros);
             return true;
-         } catch (\Exception $e) {
+         }
+         catch (\Exception $e) {
          }
       }
       return false;

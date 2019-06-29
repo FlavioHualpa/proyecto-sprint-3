@@ -1,18 +1,15 @@
 <?php
 
-class FormField
+abstract class FormField
 {
-   private $nombre;
-   private $tipo;
-   private $obligatorio;
-   private $validacion;
-   private $mensaje;
+   protected $nombre;
+   protected $obligatorio;
+   protected $mensaje;
+   protected $formValidator;
 
-   public function __construct(string $nombre, int $tipo, bool $obligatorio, array $validacion = [], string $mensaje = null) {
+   public function __construct(string $nombre, bool $obligatorio, string $mensaje = null) {
       $this->nombre = $nombre;
-      $this->tipo = $tipo;
       $this->obligatorio = $obligatorio;
-      $this->validacion = $validacion;
       $this->mensaje = $mensaje;
    }
 
@@ -20,19 +17,21 @@ class FormField
       return $this->nombre;
    }
 
-   public function getTipo() : int {
-      return $this->tipo;
-   }
-
-   public function getObligatorio() : bool {
+   public function esObligatorio() : bool {
       return $this->obligatorio;
    }
 
-   public function getValidacion() : array {
-      return $this->validacion;
-   }
-
-   public function getMensaje() {
+   public function getMensaje() : ?string {
       return $this->mensaje;
    }
+
+   public function getFormValidator() : FormValidation {
+      return $this->formValidator;
+   }
+
+   public function setFormValidator(FormValidation $formValidator) {
+      $this->formValidator = $formValidator;
+   }
+
+   public abstract function validar(string $valor) : ?string;
 }
