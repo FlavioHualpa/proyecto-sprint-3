@@ -5,85 +5,83 @@ require 'entities/PaisDbInteract.php';
 if ($_POST) {
 
    require 'validation/FormValidation.php';
+   require 'validation/DateFormField.php';
+   require 'validation/StringFormField.php';
+   require 'validation/EmailFormField.php';
+   require 'validation/ConfirmFormField.php';
+   require 'validation/OptionsFormField.php';
+   require 'validation/FileFormField.php';
    require 'entities/UserDbInteract.php';
 
    $val = new FormValidation();
 
    $val->agregarValidacion(
-     new FormField(
+     new StringFormField(
        'nombre',
-       FormValidation::TIPO_STRING,
        true
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new StringFormField(
        'apellido',
-       FormValidation::TIPO_STRING,
        true
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new EmailFormField(
        'email',
-       FormValidation::TIPO_EMAIL,
        true
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new OptionsFormField(
        'pais',
-       FormValidation::TIPO_OPCIONES,
        true
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new DateFormField(
        'nacimiento',
-       FormValidation::TIPO_FECHA,
        true,
-       [ FormValidation::VALOR_MAX, date('Y-m-d') ]
+       null,
+       date('Y-m-d')
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new OptionsFormField(
        'sexo',
-       FormValidation::TIPO_OPCIONES,
        true,
-       [ FormValidation::VALOR_OPCION, 'f', 'm' ]
+       [ 'f', 'm' ]
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new FileFormField(
        'avatar',
-       FormValidation::TIPO_FILE,
        false,
-       [ FormValidation::VALOR_EXTENSION, 'jpg', 'jpeg', 'png', 'bmp' ]
+       [ 'jpg', 'jpeg', 'png', 'bmp' ]
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new StringFormField(
        'pass',
-       FormValidation::TIPO_STRING,
        true,
-       [ FormValidation::VALOR_MIN_MAX, 6, 12 ]
+       6,
+       12
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new ConfirmFormField(
        'passConf',
-       FormValidation::TIPO_IGUALA,
        true,
-       [ 'pass' ],
+       'pass',
        'La confirmación no coincide con la contraseña'
      )
    );
    $val->agregarValidacion(
-     new FormField(
+     new OptionsFormField(
        'terminos',
-       FormValidation::TIPO_OPCIONES,
        true,
-       [ FormValidation::VALOR_OPCION, 's' ],
+       [ 's' ],
        'Debe aceptar los términos y condiciones'
      )
    );
