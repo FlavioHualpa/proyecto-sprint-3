@@ -96,13 +96,17 @@
   display: none;
   justify-content: center;
   align-items: center;
-  color: white;
   display: none;
   cursor: pointer;
-  font-family: Merriweather;
+  font-family: Mali;
   font-size: 20px;
   opacity: 0;
   transition: 0.3s;
+}
+
+.ver-mas a {
+   text-decoration: none;
+   color: white;
 }
 
 .ver-mas i {

@@ -46,8 +46,12 @@ require_once 'DataSourceSetUp.php';
             <h4><?= $libro['titulo'] ?></h4>
           </div>
           <div class="ver-mas">
-            <i class="fas fa-eye"></i>
-            <span>VER DETALLES</span>
+            <a href="detalle.php?bookid=<?= 3 ?>">
+               <i class="fas fa-eye"></i>
+               <span>
+                  VER DETALLES
+               </span>
+            </a>
           </div>
         </div>
         <div class="pie-de-articulo">

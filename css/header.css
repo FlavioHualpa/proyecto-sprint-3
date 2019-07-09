@@ -62,7 +62,24 @@
    padding: 12px;
 }
 
+#home-generos {
+   overflow: hidden;
+}
+
+#boton-home {
+   float: left;
+   margin-top: 6px;
+}
+
+#boton-home a {
+   text-decoration: none;
+   color: white;
+   font-size: 24px;
+   margin-right: 18px;
+}
+
 #boton-generos {
+   float: left;
    width: 150px;
    background-color: #e8ffff;
    border: 2px solid #0000f0;

@@ -40,12 +40,19 @@
 ?>
 
 <header id="navegador">
-   <div id="boton-generos">
-      <span>
-         <i class="fas fa-list"></i>
-         géneros
-      </span>
-      <i class="fas fa-arrow-down"></i>
+   <div id="home-generos">
+      <div id="boton-home">
+         <a href=".">
+            <i class="fas fa-home"></i>
+         </a>
+      </div>
+      <div id="boton-generos">
+         <span>
+            <i class="fas fa-list"></i>
+            géneros
+         </span>
+         <i class="fas fa-arrow-down"></i>
+      </div>
    </div>
    <div id="buscador">
       <form action="resultados.php" method="get">
