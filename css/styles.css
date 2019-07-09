@@ -8,6 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
 #encabezado h1 {
   background-color: #304878;
   font-family: 'Lobster', cursive;
@@ -17,6 +18,7 @@ html {
   padding-bottom: 40px;
   padding-top: 20px;
 }
+*/
 
 .banner {
   background-image: url(../img/banner2.jpg);
@@ -38,16 +40,16 @@ html {
 
 .tituloSection h3 {
   width: 100%;
-  height: 60px;
+  /* height: 60px; */
   border-top: 1px solid #304878;
   border-bottom: 1px solid #304878;
   /* margin-top: 20px; */
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
   /* background-color: rgba(255, 255, 255, 0.5); */
   background-color: rgba(0, 0, 0, 0.15);
-  font-family: 'Lora', serif;
-  font-size: 30px;
+  font-family: 'Pacifico', serif;
+  font-size: 36px;
   color: #304878;
 }
 
@@ -59,112 +61,6 @@ html {
 
 .separador {
   height: 50px;
-}
-
-.prodsSectionPrincipal,.fondoLogYReg {
-  background-image: url(../img/retina_wood_@2X.png);
-  display: flex;
-  justify-content: center;
-}
-.prodsSection {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  min-width: 360px;
-  max-width: 960px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-}
-
-.prodsSection article {
-  width: 90%;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.prodsSection article img {
-  width: 100%;
-}
-
-.prodsSection article h4 {
-  font-family: 'Lora', serif;
-  font-size: 22px;
-  margin: 4px 0 8px 0;
-  width: 100%;
-}
-
-.prodsSection article .pie-de-articulo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.prodsSection article .pie-de-articulo span {
-  font-family: Merriweather;
-  font-size: 20px;
-}
-
-.prodsSection article .pie-de-articulo a {
-  text-decoration: none;
-  padding: 6px 15px;
-  background-color: #304878;
-  color: white;
-  border-radius: 6px;
-  font-family: Merriweather;
-  text-transform: uppercase;
-}
-
-.prodsSection article .pie-de-articulo a:hover {
-  background-color: #0090ff;
-}
-
-.fondo-con-sombra {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 6px;
-  margin: 0 auto 15px auto;
-  width: 95%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.fondo-con-sombra img {
-  width: 90%;
-}
-
-.pie-de-articulo {
-  width: 95%;
-}
-
-.ver-mas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  display: none;
-  cursor: pointer;
-  font-family: Merriweather;
-  font-size: 20px;
-}
-
-.ver-mas i {
-  margin-right: 10px;
-}
-
-.fondo-con-sombra:hover .ver-mas {
-  display: flex;
 }
 
 .libro1 {
@@ -182,8 +78,27 @@ html {
   margin: 5%;
 }
 
+@media (min-width: 768px)
+{
+  #contenedor {
+    width: 95%;
+    margin: 0 auto;
+  }
 
+  .separador {
+    display: none;
+  }
 
+  .banner {
+    display: block;
+  }
+
+  #footer nav ul li:nth-child(2) {
+    display: block;
+  }
+}
+
+/*
 #encabezado nav ul {
   display: flex;
   justify-content: space-around;
@@ -200,7 +115,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 30%; */
   height: 60px;
   cursor: pointer;
 }
@@ -226,310 +140,4 @@ html {
   font-weight: bold;
   text-decoration: none;
 }
-
-#footer nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
-  text-decoration: none;
-  border-top: 1px solid #676745;
-  width: 100%;
-  color: #304878;
-  padding-top: 10px;
-}
-
-#footer nav ul li {
-  text-decoration: none;
-  font-family: 'Lora', serif;
-  font-size: 18px;
-  color: #304878;
-}
-
-#footer nav ul li:nth-child(2) {
-  display: none;
-}
-
-#footer nav ul li a {
-  text-decoration: none;
-  color: #304878;
-}
-
-#footer nav ul li .links {
-  font-size: 30px;
-  color: #304878;
-}
-
-#footer nav p {
-  font-family: 'Lora', serif;
-  font-size: 14px;
-  color: #676745;
-  color: #606060;
-  padding-top: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#panel-form {
-  padding: 20px;
-  margin: 40px 10px;
-  max-width: 600px;
-  background-color: rgba(0, 24, 48, 0.2);
-  border-radius: 6px;
-}
-
-.texto-registration {
-  font-family: 'Lora', serif;
-  font-size: 14px;
-  color: black;
-}
-.login .registration {
-  width: 100%;
-}
-
-.login fieldset {
-  text-decoration: none;
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  width: 90%;
-  color: #676745;
-  margin: 20px auto;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  border-left: none;
-  border-right: none;
-}
-
-.login fieldset legend {
-  color: #202020;
-}
-
-.login fieldset p label {
-  font-size: 18px;
-  color: #202020;
-}
-
-.login fieldset p input {
-  margin: 0 auto 10px auto;
-  width: 100%;
-  text-align: center;
-  font-family: 'Lora', serif;
-  font-size: 30px;
-  color: #676745;
-}
-
-.login fieldset p input[type="submit"] {
-  margin-top: 20px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  width: auto;
-  font-size: 26px;
-  cursor: pointer;
-}
-.login fieldset p input[type="reset"] {
-  margin-top: 20px;
-  border: none;
-  border-radius: 6px;
-  width: auto;
-  font-size: 26px;
-}
-.login fieldset p input[type="submit"]:hover {
-  background-color: #0090ff;
-  color: white;
-}
-
-#link_hipervinculo {
-  text-decoration: none;
-  color: #304878;
-}
-
-#recordar {
-width: 10%;
-}
-
-.error-login, .error-regist {
-  font-size: 14px;
-  color: #c00000;
-  margin-top: -6px;
-}
-
-.error-usuario {
-  font-size: 16px;
-  color: #c00000;
-  margin-top: 12px;
-  margin-bottom: 6px;
-}
-
-.registration fieldset {
-  text-decoration: none;
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  color: #676745;
-  margin: 20px auto;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  border-left: none;
-  border-right: none;
-}
-
-
-.registration fieldset legend {
-  color: #202020;
-}
-
-.registration fieldset p label, .terminos, .sexo_fem, .sexo_masc, label[for="avatar_button"] {
-  font-size: 18px;
-  color: #202020;
-}
-
-.avatar_button {
-  text-align: center;
-}
-
-/*EMPIEZA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando*/
-
-.registration fieldset p input[type="file"] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.registration fieldset p label[for="avatar"] {
-  font-size: 20px;
-  color: #676745;
-  background-color: white;
-  display: inline-block;
-  cursor: pointer;
-  padding: 10px 10px;
-  text-transform: uppercase;
-  width: fit-content;
-  text-align: center;
-  border-radius: 6px;
-  margin: 30px 0px 20px 0px;
-}
-
-.registration fieldset p label[for="avatar"]:hover {
-  background-color: #c0c0c0;
-}
-
-/*TERMINA ACA: esto se agrega para que no se vea el texto que dice "debe subir el archivo" y el boton de examinar, pero no está funcionando*/
-
-
-.registration fieldset p input,
-.registration fieldset p select {
-  margin: 0 auto 10px auto;
-  width: 100%;
-  text-align: center;
-  font-family: 'Lora', serif;
-  font-size: 30px;
-  color: #676745;
-}
-
-.registration fieldset div input[type="checkbox"] {
-  transform: scale(1.3);
-  margin-right: 10px;
-  margin-top: 5px;
-}
-
-.registration fieldset p input[type="submit"],
-.registration fieldset p input[type="reset"] {
-  margin-top: 20px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  width: aut: ;o;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-.registration fieldset p input[type="submit"] {
-  background-color: #0060ff;
-  color: white;
-}
-
-.registration fieldset p input[type="submit"]:hover {
-  background-color: #0090ff;
-}
-
-.registration fieldset p input[type="reset"]:hover {
-  background-color: #c0c0c0;
-}
-
-.registration fieldset legend p .sexo {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.terminos {
-  display: flex;
-  justify-content: center;
-  margin: 5px;
-}
-
-.botones {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-#boton {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-@media (min-width: 480px) /* and (max-width: 768px) */ {
-  .prodsSection article {
-    width: 45%;
-  }
-  .fondo-con-sombra {
-    width: 95%;
-  }
-}
-
-@media (min-width: 768px) {
-  #contenedor {
-    width: 95%;
-    margin: 0 auto;
-  }
-  .separador {
-    display: none;
-  }
-  .banner {
-    display: block;
-  }
-  /*
-  .prodsSection {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    height: 525px;
-  }
-  */
-  .prodsSection article {
-    width: 30%;
-  }
-  .libro1 {
-    width: 30%;
-    margin: auto 1%;
-  }
-  .libro2 {
-    width: 30%;
-    margin: auto 1%;
-  }
-  .libro3 {
-    width: 30%;
-    margin: auto 1%;
-  }
-  #footer nav ul li:nth-child(2) {
-    display: block;
-  }
-}
+*/

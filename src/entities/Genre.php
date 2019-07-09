@@ -1,49 +1,42 @@
 <?php
 
-class Pais
+class Genre
 {
    private $id;
-   private $nombre;
-   private $codigo;
+   private $name;
 
-   public function __construct(int $id, string $nombre, string $codigo) {
+   public function __construct(int $id, string $name) {
       $this->id = $id;
-      $this->nombre = $nombre;
-      $this->codigo = $codigo;
+      $this->name = $name;
    }
 
    public function getId() : int {
       return $this->id;
    }
 
-   public function getNombre() : string {
-      return $this->nombre;
+   public function getName() : string {
+      return $this->name;
    }
 
-   public function getCodigo() : string {
-      return $this->codigo;
-   }
-
-   private static function createInstance(array $row) : Pais {
-      $pais = new Pais(
+   private static function createInstance(array $row) : Genre {
+      $genre = new Genre(
          $row['id'],
-         $row['nombre'],
-         $row['codigo']
+         $row['name']
       );
-      return $pais;
+      return $genre;
    }
 
    private static function createArray(array $rows) : array {
-      $paises = [];
+      $genres = [];
       foreach ($rows as $row) {
-         $paises[] = self::createInstance($row);
+         $genres[] = self::createInstance($row);
       }
-      return $paises;
+      return $genres;
    }
 
    public static function selectAll(StorageInterface $storage) : array {
       if ($storage instanceof DbStorage) {
-         $storage->setQuery('SELECT * FROM paises');
+         $storage->setQuery('SELECT * FROM genres ORDER BY name');
          $rows = $storage->select();
       }
       elseif ($storage instanceOf JsonStorage) {
@@ -53,13 +46,13 @@ class Pais
          $rows = [];
       }
 
-      $paises = self::createArray($rows);
-      return $paises;
+      $genres = self::createArray($rows);
+      return $genres;
    }
 
-   public static function select(StorageInterface $storage, int $id) : ?Pais {
+   public static function select(StorageInterface $storage, int $id) : ?Genre {
       if ($storage instanceof DbStorage) {
-         $storage->setQuery('SELECT * FROM paises WHERE id = :id');
+         $storage->setQuery('SELECT * FROM genres WHERE id = :id');
          $rows = $storage->select([ 'id' => $id ]);
       }
       elseif ($storage instanceOf JsonStorage) {
@@ -70,17 +63,17 @@ class Pais
       }
 
       if ($rows) {
-         $pais = self::createInstance($rows[0]);
-         return $pais;
+         $genre = self::createInstance($rows[0]);
+         return $genre;
       }
       return null;
    }
 
    public static function insert(StorageInterface $storage, array $datos) : ?Pais {
       if ($storage instanceof DbStorage) {
-         $storage->setQuery('INSERT INTO paises
-            (nombre, codigo)
-            VALUES (:nombre, :codigo)'
+         $storage->setQuery('INSERT INTO genres
+            (name, codigo)
+            VALUES (:name, :codigo)'
          );
          $exito = $storage->insert($datos);
       }
@@ -93,8 +86,8 @@ class Pais
 
       if ($exito) {
          $datos['id'] = $storage->getLastInsertId();
-         $pais = self::createInstance($datos);
-         return $pais;
+         $genre = self::createInstance($datos);
+         return $genre;
       }
       return null;
    }

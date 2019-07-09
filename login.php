@@ -41,9 +41,15 @@ if ($_POST) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es">
   <?php
-    include('head.php');
+     $styles = [
+        'css/styles.css',
+        'css/header.css',
+        'css/registration.css',
+        'css/footer.css',
+     ];
+     require 'head.php';
   ?>
   <body>
     <div id="contenedor">

@@ -1,6 +1,7 @@
 <?php
 
-require 'entities/PaisDbInteract.php';
+require 'entities/DbStorage.php';
+require 'entities/Pais.php';
 
 if ($_POST) {
 
@@ -11,7 +12,7 @@ if ($_POST) {
    require 'validation/ConfirmFormField.php';
    require 'validation/OptionsFormField.php';
    require 'validation/FileFormField.php';
-   require 'entities/UserDbInteract.php';
+   require 'entities/User.php';
 
    $val = new FormValidation();
 

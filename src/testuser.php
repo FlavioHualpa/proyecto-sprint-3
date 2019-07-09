@@ -11,9 +11,15 @@
 
    require 'validateuser.php';
 
+   $storage = new DbStorage();
+   $storage->connect();
+   $paises = Pais::selectAll($storage);
+
+   /*
    $dbi_paises = new PaisDbInteract();
    $dbi_paises->connect('test.05.25');
    $dbi_paises->traerPaises();
+   */
 
 ?>
 
@@ -55,11 +61,9 @@
 			<div class="campo-form">
 				<label for="pais">País</label>
             <select name="pais" id="pais" class="pais">
-               <?php $pais = $dbi_paises->siguientePais(); ?>
-               <?php while ($pais) : ?>
+               <?php foreach ($paises as $pais) : ?>
                   <option value="<?= $pais->getCodigo() ?>" <?= isset($_POST['pais']) && $_POST['pais'] == $pais->getCodigo() ? 'selected' : '' ?>><?= $pais->getNombre() ?></option>
-               <?php $pais = $dbi_paises->siguientePais(); ?>
-               <?php endwhile ?>
+               <?php endforeach ?>
             </select>
 				<?php if (isset($errores['pais'])) : ?>
 				<p><i class="fas fa-exclamation-circle"></i><?= $errores['pais'] ?></p>

@@ -1,8 +1,21 @@
-<?php require 'funciones.php'; ?>
+<?php
+
+require 'funciones.php';
+require_once 'DataSourceSetUp.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
-<?php require 'head.php'; ?>
+<?php
+   $styles = [
+      'css/styles.css',
+      'css/header.css',
+      'css/article.css',
+      'css/footer.css',
+   ];
+   require 'head.php';
+?>
 
 <body>
   <div id="contenedor">
@@ -15,7 +28,7 @@
       <div class="viñeta">
       </div>
       <h3>
-        NOVEDADES
+        Novedades
       </h3>
       <div class="viñeta">
       </div>
@@ -39,7 +52,7 @@
         </div>
         <div class="pie-de-articulo">
           <span><?= '$ ' . $libro['precio'] ?></span>
-          <a href="#">comprar</a>
+          <a href="#">agregar al <i class="fas fa-shopping-cart"></i></a>
         </div>
       </article>
       <?php
@@ -52,24 +65,13 @@
     </section>
     </div>
 
-        <!--
-        <article class="libro2">
-          <img src="img/gr_lavoz.png" alt="FOTO NO DISPONIBLE">
-        </article>
-        <article class="libro3">
-          <img src="img/cfk_sinceramente.png" alt="FOTO NO DISPONIBLE">
-        </article>
-      </div>
-    </section>
-    -->
-
     <section class="tituloSection">
       <div class="separador">
       </div>
       <div class="viñeta">
       </div>
       <h3>
-        LOS MÁS VENDIDOS
+        Los más vendidos
       </h3>
       <div class="viñeta">
       </div>
@@ -89,7 +91,7 @@
         </div>
         <div class="pie-de-articulo">
           <span><?= '$ ' . $libro['precio'] ?></span>
-          <a href="#">comprar</a>
+          <a href="#">agregar al <i class="fas fa-shopping-cart"></i></a>
         </div>
       </article>
       <?php
@@ -101,21 +103,10 @@
       ?>
     </section>
     </div>
-        <!--
-        <article class="libro1">
-          <img src="img/dlr_equilibrio.png" alt="FOTO NO DISPONIBLE">
-        </article>
-        <article class="libro2">
-          <img src="img/fb_comodios.png" alt="FOTO NO DISPONIBLE">
-        </article>
-        <article class="libro3">
-          <img src="img/is_recuerdos.png" alt="FOTO NO DISPONIBLE">
-        </article>
-      </div>
-    </section>
-    -->
 
     <?php require 'footer.php'; ?>
   </div>
+  <script src="scripts/header.js">
+  </script>
 </body>
 </html>

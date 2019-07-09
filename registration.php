@@ -82,11 +82,16 @@ $errores = [];
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <?php
-    include('head.php');
-    // include('datos.php');
-  ?>
+<html lang="es">
+   <?php
+      $styles = [
+         'css/styles.css',
+         'css/header.css',
+         'css/registration.css',
+         'css/footer.css',
+      ];
+      require 'head.php';
+   ?>
   <body>
     <div id="contenedor">
       <?php
