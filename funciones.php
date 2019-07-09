@@ -41,7 +41,7 @@
   }
 
   function validar_login() {
-    $errores = [];
+      $errores = [];
 
     if (!isset($_POST['email']) || empty(trim($_POST['email']))) {
       $errores['email'] = 'El email es requerido';
@@ -137,4 +137,13 @@
     $_SESSION['nombre'] = $usuario['nombre'];
     $_SESSION['avatar'] = $usuario['avatar_url'];
   }
+
+  function get_connection(){
+    try{
+      return $pdo = new PDO('mysql:host=localhost; dbname=movies_db', 'root', 'root');
+    } catch(Excepction $e) {
+      Return false;
+    }
+  }
+
 ?>

@@ -3,7 +3,7 @@
     <ul>
       <li>
         <div>
-          <a href="#">Acerca de ¿Qué Leo?</a>
+          <a href="acerca.php">Acerca de ¿Qué Leo?</a>
         </div>
       </li>
       <li>
