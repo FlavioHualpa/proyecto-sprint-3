@@ -1,0 +1,75 @@
+.encabezado {
+   background-color: #02137A;
+   color: white;
+   padding: 20px;
+}
+
+.encabezado h1 {
+   font-family: Lobster;
+   font-size: 36px;
+}
+
+.encabezado p {
+   font-family: Mali;
+   font-size: 18px;
+}
+
+.principal {
+   margin-top: 30px;
+   font-family: Mali;
+}
+
+.principal h2 {
+   font-size: 36px;
+   border-bottom: 1px solid #02137A;
+}
+
+.exito,
+.no-db,
+.no-tables {
+   margin-top: 48px;
+   overflow: hidden;
+}
+
+.exito img,
+.no-db img,
+.no-tables img {
+   float: left;
+   margin-right: 24px;
+   vertical-align: middle;
+   height: 120px;
+}
+
+.exito span {
+   font-family: Mali;
+   font-size: 28px;
+}
+
+.exito a {
+   text-decoration: none;
+   font-size: 20px;
+}
+
+.no-db p,
+.no-db a,
+.no-tables p,
+.no-tables a {
+   font-family: Mali;
+   font-size: 24px;
+   margin-bottom: 20px;
+}
+
+.no-db a,
+.no-tables a {
+   text-decoration: none;
+   padding: 6px 18px;
+   color: white;
+   background-color: #02137A;
+   border-radius: 6px;
+   transition: 0.3s;
+}
+
+.no-db a:hover,
+.no-tables a:hover {
+   background-color: #0090ff;
+}

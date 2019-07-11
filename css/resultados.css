@@ -80,6 +80,32 @@
    clear: both;
 }
 
+.sin-resultados {
+   margin: 50px 0;
+}
+
+.sin-resultados div img {
+   vertical-align: middle;
+   margin-right: 30px;
+   width: 200px;
+}
+
+.sin-resultados div span {
+   font-family: Mali;
+   font-size: 28px;
+}
+
+.sin-resultados p {
+   font-family: 'Roboto Condensed';
+   font-size: 16px;
+   margin-top: 20px;
+   line-height: 150%;
+}
+
+.sin-resultados p a {
+   text-decoration: none;
+}
+
 @media screen and (min-width: 600px){
    #resultados {
       width: 600px;

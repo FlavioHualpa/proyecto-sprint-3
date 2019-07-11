@@ -180,7 +180,7 @@ class BookSearch
          $books = self::createArray($rows);
          return $books;
       }
-      return null;
+      return [];
    }
 
    public static function insert(StorageInterface $storage, array $datos) : ?BookSearch {

@@ -125,38 +125,6 @@ class Book
       return null;
    }
 
-   public static function find(StorageInterface $storage, string $keywords) {
-      if ($storage instanceof DbStorage) {
-         $storage->setQuery('SELECT title, total_pages, price, year_published,
-            languages.name AS language,
-            genres.name AS genre,
-            CONCAT(authors.first_name, ' ', authors.last_name) AS author,
-            publishers.name AS publisher
-            FROM books
-            INNER JOIN languages ON languages.id = books.language_id
-            INNER JOIN genres ON genres.id = books.genre_id
-            INNER JOIN authors ON authors.id = books.author_id
-            INNER JOIN publishers ON publishers.id = books.publisher_id
-            WHERE books.title LIKE :keywords
-            OR CONCAT(authors.first_name, ' ', authors.last_name) LIKE :keywords
-            OR publishers.name LIKE :keywords
-         ');
-         $rows = $storage->select([ 'id' => $id ]);
-      }
-      elseif ($storage instanceOf JsonStorage) {
-         $rows = $storage->select([ 'id' => $id ]);
-      }
-      else {
-         $rows = [];
-      }
-
-      if ($rows) {
-         $book = self::createInstance($rows[0]);
-         return $book;
-      }
-      return null;
-   }
-
    public static function insert(StorageInterface $storage, array $datos) : ?Book {
       if ($storage instanceof DbStorage) {
          $storage->setQuery('INSERT INTO books

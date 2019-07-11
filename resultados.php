@@ -30,6 +30,20 @@
       <?php require 'header_full.php'; ?>
       <section id="resultados">
          <h3>Resultados para '<?= $keywords ?>'</h3>
+
+         <?php if (empty($books)) : ?>
+            <div class="sin-resultados">
+               <div>
+                  <img src="img/no-results-1.png" alt="no se encontraron resultados">
+                  <span>No hay resultados</span>
+               </div>
+               <p>
+                  Intente repetir la búsqueda con otras palabras
+                  <br>
+                  O si prefiere puede regresar <a href=".">a la página principal</a>
+               </p>
+            </div>
+         <?php else : ?>
          <?php foreach ($books as $book) : ?>
             <article class="item-resultado">
                <div>
@@ -55,6 +69,7 @@
                </a>
             </article>
          <?php endforeach ?>
+         <?php endif ?>
       </section>
    </div>
    <script src="scripts/header.js">
