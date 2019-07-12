@@ -12,8 +12,10 @@ class BookSearch
    private $genre;
    private $author;
    private $publisher;
+   private $resena;
+   private $isbn;
 
-   public function __construct(int $id, string $title, int $total_pages, float $price, string $cover_img_url, int $year_published, string $language, string $genre, string $author, string $publisher) {
+   public function __construct(int $id, string $title, int $total_pages, float $price, string $cover_img_url, int $year_published, string $language, string $genre, string $author, string $publisher, string $resena, string $isbn) {
       $this->id = $id;
       $this->title = $title;
       $this->total_pages = $total_pages;
@@ -24,6 +26,8 @@ class BookSearch
       $this->genre = $genre;
       $this->author = $author;
       $this->publisher = $publisher;
+      $this->resena = $resena;
+      $this->isbn = $isbn;
    }
 
    public function getId() : int {
@@ -66,6 +70,14 @@ class BookSearch
       return $this->publisher;
    }
 
+   public function getResena() : string {
+      return $this->resena;
+   }
+
+   public function getISBN() : string {
+      return $this->isbn;
+   }
+
    private static function createInstance(array $row) : BookSearch {
       $book = new BookSearch(
          $row['id'],
@@ -77,7 +89,9 @@ class BookSearch
          $row['language'],
          $row['genre'],
          $row['author'],
-         $row['publisher']
+         $row['publisher'],
+         $row['resena'],
+         $row['isbn']
       );
       return $book;
    }
@@ -97,7 +111,9 @@ class BookSearch
             languages.name AS language,
             genres.name AS genre,
             CONCAT(authors.first_name, " ", authors.last_name) AS author,
-            publishers.name AS publisher
+            publishers.name AS publisher,
+            resena,
+            isbn
             FROM books
             INNER JOIN languages ON languages.id = books.language_id
             INNER JOIN genres ON genres.id = books.genre_id
@@ -124,13 +140,15 @@ class BookSearch
             languages.name AS language,
             genres.name AS genre,
             CONCAT(authors.first_name, " ", authors.last_name) AS author,
-            publishers.name AS publisher
+            publishers.name AS publisher,
+            resena,
+            isbn
             FROM books
             INNER JOIN languages ON languages.id = books.language_id
             INNER JOIN genres ON genres.id = books.genre_id
             INNER JOIN authors ON authors.id = books.author_id
             INNER JOIN publishers ON publishers.id = books.publisher_id
-            WHERE id = :id'
+            WHERE books.id = :id'
          );
          $rows = $storage->select([ 'id' => $id ]);
       }
@@ -155,7 +173,9 @@ class BookSearch
             languages.name AS language,
             genres.name AS genre,
             CONCAT(authors.first_name, " ", authors.last_name) AS author,
-            publishers.name AS publisher
+            publishers.name AS publisher,
+            resena,
+            isbn
             FROM books
             INNER JOIN languages ON languages.id = books.language_id
             INNER JOIN genres ON genres.id = books.genre_id
@@ -163,7 +183,8 @@ class BookSearch
             INNER JOIN publishers ON publishers.id = books.publisher_id
             WHERE books.title LIKE :keywords
             OR CONCAT(authors.first_name, " ", authors.last_name) LIKE :keywords
-            OR publishers.name LIKE :keywords'
+            OR publishers.name LIKE :keywords
+            OR books.resena LIKE :keywords'
          );
          $rows = $storage->select([
             'keywords' => '%' . $keywords .'%'

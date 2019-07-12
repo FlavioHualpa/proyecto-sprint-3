@@ -24,6 +24,10 @@ class DbStorage implements StorageInterface
       $this->query = null;
    }
 
+   public function getErrorInfo() : array {
+      return $this->stmt->errorInfo();
+   }
+
    public function connect() : bool {
       $this->db = Connection::connect(
          $this->host,
@@ -90,42 +94,3 @@ class DbStorage implements StorageInterface
       return -1;
    }
 }
-
-/*
-$myStorage = new DbStorage();
-if ($myStorage->connect()) {
-   User::insert($myStorage,
-      [
-         'first_name' => 'Manuela',
-         'last_name' => 'Echeverría',
-         'email' => 'manu@speedy.com.ar',
-         'country_code' => 'AR',
-         'birth_date' => '1991-03-14',
-         'sex' => 'f',
-         'password' => password_hash('unodos34', PASSWORD_DEFAULT),
-         'avatar_url' => '',
-         'created_at' => time(),
-      ]
-   );
-   var_dump(User::selectAll($myStorage));
-   var_dump(User::select($myStorage, 2));
-   var_dump(Book::selectAll($myStorage));
-   var_dump(Book::select($myStorage, 2));
-   var_dump(Pais::selectAll($myStorage));
-   var_dump(Pais::select($myStorage, 2));
-}
-else {
-   echo 'Oh no!';
-}
-
-/*
-$myStorage = new JsonStorage();
-$myStorage->setJsonFileUrl('../../datos/usuarios.json');
-if ($myStorage->connect()) {
-   var_dump(User::selectAll($myStorage));
-   var_dump(User::select($myStorage, 2));
-}
-else {
-   echo 'Oh no!';
-}
-*/

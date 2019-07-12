@@ -48,7 +48,7 @@
             <article class="item-resultado">
                <div>
                   <a href="detalles.php?bookid=<?= $book->getId() ?>">
-                     <img src="img/mr_luciernagas.png" alt="">
+                     <img src="img/<?= $book->getCoverImgUrl() ?>" alt="<?= $book->getTitle() ?>">
                   </a>
                   <br>
                   <span>$ <?= number_format($book->getPrice(), 2) ?></span>

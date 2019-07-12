@@ -2,7 +2,7 @@
 
 //conectarnos a My SQL //
 //pasar de base de datos a json//
-function ExportarAJson() {
+function exportarAJson() {
    try {
      $db = get_connection();
      if ($db) {
@@ -22,7 +22,7 @@ function ExportarAJson() {
 }
 
 //pasar de json a base de datos//
-function ImportarDeJson() {
+function importarDeJson() {
    try {
     if (file_exists('../datos/usuarios.json')){
       $txt = file_get_contents('../datos/usuarios.json');
@@ -31,10 +31,20 @@ function ImportarDeJson() {
       $db = get_connection();
       if($db) {
         foreach ($usuarios as $usuario) {
-          $query = "INSERT into ´users´
+          $query = "INSERT into `users`
             (id, first_name, last_name, email, country_code,
-            birth_date, sex, password, avatar_url)
-            VALUES (" . $usuario['id'] . ", '" . $usuario['first_name'] . "')";
+            birth_date, sex, password, avatar_url, created_at)
+            VALUES (" .
+               $usuario['id'] . ", '" .
+               $usuario['first_name'] . "', '" .
+               $usuario['last_name'] . "', '" .
+               $usuario['email'] . "', '" .
+               $usuario['country_code'] . "', '" .
+               $usuario['birth_date'] . "', '" .
+               $usuario['sex'] . "', '" .
+               $usuario['password'] . "', '" .
+               $usuario['avatar_url'] . "', '" .
+               $usuario['created_at'] . "')";
           $stmt = $db->prepare($query);
           $stmt->execute();
         }

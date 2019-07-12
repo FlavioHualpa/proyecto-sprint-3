@@ -11,3 +11,4 @@ if ($db) {
 }
 
 header('location: migracion.php');
+exit();

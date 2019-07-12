@@ -81,36 +81,3 @@ class JsonStorage implements StorageInterface
       return -1;
    }
 }
-
-/*
-$myStorage = new JsonStorage();
-$myStorage->setJsonFileUrl('usuarios.json');
-if ($myStorage->connect()) {
-   echo 'Hurra!';
-}
-else {
-   echo 'Oh no!';
-}
-
-if ($myStorage->select()) {
-   echo 'Hurra!';
-}
-else {
-   echo 'Oh no!';
-}
-
-if ($myStorage->insert(
-   [
-      'nombre' => 'flavio',
-      'apellido' => 'hualpa',
-      'email' => 'fh@gamil.com',
-      'nacimiento' => '1972-03-05',
-      'password' => 'everst21'
-   ]
-)) {
-   echo 'Hurra!';
-}
-else {
-   echo 'Oh no!';
-}
-*/

@@ -8,8 +8,8 @@ if ($db) {
    $tables = testTables(
       $db,
       [
-         'users', 'genres', 'authors', 'publishers',
-         'languages', 'paises', 'purchases', 'books_purchases'
+         'users', 'genres', 'authors', 'publishers', 'languages',
+         'paises', 'books', 'purchases', 'books_purchases'
       ]
    );
    $allTablesOk = allTablesOk($tables);
@@ -45,7 +45,7 @@ else {
                   <img src="https://www.clipartmax.com/png/small/35-355975_certainly-clipart-thumbs-up-thumbs-down-printable.png" alt="Certainly Clipart - Thumbs Up Thumbs Down Printable @clipartmax.com">
                   <span>La migración a MySql se realizó exitosamente!</span>
                   <br>
-                  <a href=".">Ir al inicio</a>
+                  <a href="..">Ir al inicio</a>
                </div>
             <?php else : ?>
                <div class="no-tables">

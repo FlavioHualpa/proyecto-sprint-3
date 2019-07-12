@@ -1,6 +1,15 @@
 <?php
 require 'funciones.php';
 require_once 'DataSourceSetUp.php';
+require_once 'src/entities/BookSearch.php';
+
+if (isset($_GET['bookid'])) {
+   $libro = BookSearch::select($storage, $_GET['bookid']);
+}
+else {
+   header('location: .');
+   exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +18,7 @@ require_once 'DataSourceSetUp.php';
    $styles = [
       'css/styles.css',
       'css/header.css',
-      'css/detalles.css',
+      'css/detalle.css',
       'css/footer.css',
    ];
    require 'head.php';
@@ -19,26 +28,28 @@ require_once 'DataSourceSetUp.php';
   <div id="contenedor_detalle">
     <?php require 'header_full.php'; ?>
     <section class="detalle_libro">
-      <?php $mostrados = 0; ?>
-      <?php foreach($novedades as $libro) : ?>
+      <!--
+      <php $mostrados = 0; ?>
+      <php foreach($novedades as $libro) : ?>
+      -->
       <div class="ruta_libro">
         <h4>
-        Libros/<?= $libro['titulo'] ?>
+        Libros/<?= $libro->getTitle() ?>
         </h4>
       </div>
       <div class="detalle_principal">
         <div class="detalle_imagen">
-          <img src="<?= 'img/' . $libro['imagenTapa'] ?>" alt="<?= $libro['titulo'] ?>">
+          <img src="<?= 'img/' . $libro->getCoverImgUrl() ?>" alt="<?= $libro->getTitle() ?>">
         </div>
         <div class="detalle_lateral">
           <h3>
-            <?= $libro['titulo'] ?>
+            <?= $libro->getTitle() ?>
           </h3>
           <h6>
-            Ranking: # <?= $libro['ranking'] ?>
+            Ranking: # <?= 1 ?>
           </h6>
           <h5>
-            $ <?= $libro['precio'] ?>
+            $ <?= $libro->getPrice() ?>
           </h5>
           <div class="detalle_cantidad">
             <h6>
@@ -62,7 +73,7 @@ require_once 'DataSourceSetUp.php';
             Reseñas del libro:
           </h6>
           <p>
-            <?= $libro['reseña'] ?>
+            <?= $libro->getResena() ?>
           </p>
           <h6>
             <button class="costos_envio" data-hook="costos_envio" type="submit">Costos de envío y tiempos de entrega</button>
@@ -75,37 +86,41 @@ require_once 'DataSourceSetUp.php';
         </h6>
         <ul>
           <li>
-            <b>Autor:</b> <?= $libro['autor'] ?>
+            <b>Autor:</b> <?= $libro->getAuthor() ?>
           </li>
           <li>
-            <b>Editorial:</b> <?= $libro['editorial'] ?>
+            <b>Editorial:</b> <?= $libro->getPublisher() ?>
           </li>
           <li>
-            <b>I.S.B.N.:</b> <?= $libro['isbn'] ?>
+            <b>I.S.B.N.:</b> <?= $libro->getISBN() ?>
           </li>
           <li>
-            <b>Géneros:</b> <?= $libro['generos'] ?>
+            <b>Géneros:</b> <?= $libro->getGenre() ?>
           </li>
           <li>
-            <b>Páginas:</b> <?= $libro['paginas'] ?>
+            <b>Páginas:</b> <?= $libro->getTotalPages() ?>
           </li>
           <li>
-            <b>Publicación:</b> <?= $libro['año_publicacion'] ?>
+            <b>Publicación:</b> <?= $libro->getYearPublished() ?>
           </li>
           <li>
-            <b>Idioma:</b> <?= $libro['idioma'] ?>
+            <b>Idioma:</b> <?= $libro->getLanguage() ?>
           </li>
         </ul>
       </div>
-      <?php
+      <!--
+      <php
         $mostrados++;
         if ($mostrados == 6) {
           break;
         }
         endforeach;
       ?>
+      -->
     </section>
     <?php require 'footer.php'; ?>
+    <script src="scripts/header.js">
+    </script>
   </div>
 </body>
 </html>
