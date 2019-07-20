@@ -8,7 +8,7 @@ abstract class Factory
 {
    private $dataSource;
 
-   public static function getDataSource(string $type) : StorageInterface {
+   public static function getDataSource(string $type) : ?StorageInterface {
       switch ($type) {
          case 'db':
             $dataSource = new DbStorage();

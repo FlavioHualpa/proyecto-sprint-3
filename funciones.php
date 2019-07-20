@@ -59,7 +59,7 @@
     $usuarios = leer_json('datos/usuarios.json');
 
     foreach ($usuarios as $usuario) {
-      if ($usuario['email'] == $user && password_verify($pass, $usuario['pass'])) {
+      if ($usuario['email'] == $user && password_verify($pass, $usuario['password'])) {
         return $usuario;
       }
     }
@@ -72,7 +72,7 @@
 
     if ($usuarios) {
       foreach ($usuarios as $valor) {
-        if ($valor['email'] == $email || $valor['usuario'] == $usuario) {
+      if ($valor['email'] == $email /* || $valor['usuario'] == $usuario */) {
           return true;
         }
       }
@@ -115,15 +115,15 @@
 
     $usuario = [
       'id' => $id,
-      'nombre' => $_POST['nombre'],
-      'apellido' => $_POST['apellido'],
-      'usuario' => $_POST['usuario'],
+      'first_name' => $_POST['nombre'],
+      'last_name' => $_POST['apellido'],
       'email' => $_POST['email'],
-      'paisNacimiento' => $_POST['paisNacimiento'],
-      'nacimiento' => $_POST['nacimiento'],
-      'sexo' => $_POST['sexo'],
-      'pass' => password_hash($_POST['pass'], PASSWORD_DEFAULT),
+      'country_code' => $_POST['paisNacimiento'],
+      'birth_date' => $_POST['nacimiento'],
+      'sex' => $_POST['sexo'],
+      'password' => password_hash($_POST['pass'], PASSWORD_DEFAULT),
       'avatar_url' => $hashed_name,
+      'created_at' => date('Y-m-d')
     ];
 
     $usuarios[] = $usuario;
@@ -133,8 +133,8 @@
 
   function set_session_data($usuario) {
     $_SESSION['id'] = $usuario['id'];
-    $_SESSION['genero'] = $usuario['sexo'];
-    $_SESSION['nombre'] = $usuario['nombre'];
+    $_SESSION['genero'] = $usuario['sex'];
+    $_SESSION['nombre'] = $usuario['first_name'];
     $_SESSION['avatar'] = $usuario['avatar_url'];
   }
 

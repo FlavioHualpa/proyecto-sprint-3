@@ -69,11 +69,11 @@ class Genre
       return null;
    }
 
-   public static function insert(StorageInterface $storage, array $datos) : ?Pais {
+   public static function insert(StorageInterface $storage, array $datos) : ?Genre {
       if ($storage instanceof DbStorage) {
          $storage->setQuery('INSERT INTO genres
-            (name, codigo)
-            VALUES (:name, :codigo)'
+            (name)
+            VALUES (:name)'
          );
          $exito = $storage->insert($datos);
       }

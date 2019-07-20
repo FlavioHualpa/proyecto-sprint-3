@@ -5,7 +5,7 @@ require 'funciones.php';
 $db = get_connection('');
 
 if ($db) {
-   $query = 'CREATE DATABASE test1 CHARACTER SET = utf8';
+   $query = 'CREATE DATABASE queleo CHARACTER SET = utf8';
    $stmt = $db->prepare($query);
    $stmt->execute();
 }

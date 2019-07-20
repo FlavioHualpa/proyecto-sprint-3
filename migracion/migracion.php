@@ -2,14 +2,14 @@
 
 require 'funciones.php';
 
-$db = get_connection('test1');
+$db = get_connection();
 
 if ($db) {
    $tables = testTables(
       $db,
       [
          'users', 'genres', 'authors', 'publishers', 'languages',
-         'paises', 'books', 'purchases', 'books_purchases'
+         'paises', 'books', 'purchases', 'book_purchase'
       ]
    );
    $allTablesOk = allTablesOk($tables);
