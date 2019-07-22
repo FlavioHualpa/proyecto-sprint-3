@@ -65,6 +65,57 @@ class User
       return $this->password;
    }
 
+   
+   public function setId($id) : int {
+      $this->id = $id;
+      return $this;
+   }
+   public function setFirstName($firstName) {
+      $this->firstName = $firstName;
+      return $this;
+   }
+
+   public function setLastName($lastName) {
+      $this->lastName = $lastName;
+      return $this;
+   }
+
+   public function setEmail($email)
+   {
+      $this->email = $email;
+      return $this;
+    }
+
+   public function setCountryCode($countryCode) {
+      $this->countryCode = $countryCode;
+      return $this;
+   }
+
+   public function setBirthDate($birthDate) {
+      $this->birthDate = $birthDate;
+      return $this;
+   }
+
+   public function setCreationDate($createdAt) {
+      $this->creationDate = $createdAt;
+      return $this;
+   }
+
+   public function setSex($sex) {
+      $this->sex = $sex;
+      return $this;
+   }
+
+   public function setAvatarUrl($avatarUrl) {
+      $this->avatarUrl = $avatarUrl;
+      return $this;
+   }
+
+   public function setPassword($password) {
+      $this->password = $password;
+      return $this;
+   }
+
    private static function createInstance(array $row) : User {
       $user = new User(
          $row['id'],
